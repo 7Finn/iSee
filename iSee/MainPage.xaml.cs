@@ -110,6 +110,27 @@ namespace iSee
             viewTitleBar.ButtonInactiveForegroundColor = Colors.White;
             viewTitleBar.ButtonHoverForegroundColor = Colors.White;
         }
+
+        private async void ShowSignInDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            SignInContentDialog signInDialog = new SignInContentDialog();
+            await signInDialog.ShowAsync(); //获取返回值
+
+            if (signInDialog.Result == SignInResult.SignInOK)
+            {
+                // Sign in was successful.
+            }
+            else if (signInDialog.Result == SignInResult.SignInFail)
+            {
+                // Sign in failed.
+            }
+            else if (signInDialog.Result == SignInResult.SignInCancel)
+            {
+                // Sign in was cancelled by the user.
+            }
+        }
+
+
     }
 
     public enum NotifyType

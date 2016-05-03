@@ -22,13 +22,13 @@
     <AppXManifest Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-03T12:57:34.069</Modified>
+      <Modified>2016-05-03T15:58:28.172</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
       <PackagePath>entrypoint\iSee.exe</PackagePath>
-      <Modified>2016-05-03T12:57:33.472</Modified>
+      <Modified>2016-05-03T15:57:01.343</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -502,7 +502,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.xr.xml">
       <PackagePath>iSee.xr.xml</PackagePath>
-      <Modified>2016-05-03T12:57:33.360</Modified>
+      <Modified>2016-05-03T15:57:01.185</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -510,11 +510,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-03T12:57:33.876</Modified>
+      <Modified>2016-05-03T15:58:27.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\iSee.exe">
       <PackagePath>iSee.exe</PackagePath>
-      <Modified>2016-05-03T12:57:34.068</Modified>
+      <Modified>2016-05-03T15:58:28.171</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

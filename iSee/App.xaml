@@ -16,7 +16,7 @@
                  -->
                 <ResourceDictionary Source="/Styles/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <local:ScenarioBindingConverter x:Key="ScenarioConverter"/>
+            <!--<local:ScenarioBindingConverter x:Key="ScenarioConverter"/> -->
         </ResourceDictionary>
     </Application.Resources>
     

@@ -18,10 +18,11 @@
                 <StackPanel>
                     <Ellipse Height="120" Width="120" Margin="0,20,0,0">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Assets/UserImage.jpg" Stretch="UniformToFill" />
+                            <ImageBrush ImageSource="Assets/UserImage.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
                     <TextBlock Style="{StaticResource PaneUserName}" Margin="0,10,0,0">57Finn</TextBlock>
+                    <Button Click="ShowSignInDialogButton_Click">登录</Button>
                     <TextBlock Style="{StaticResource PaneHeadTitle}" Margin="10,0,0,0">我的电影</TextBlock>
                     <ListView x:Name="ScenarioControl" SelectionChanged="ScenarioControl_SelectionChanged"
                 SelectionMode="Single" Background="Transparent" BorderThickness="0"
