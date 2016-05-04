@@ -1,0 +1,44 @@
+﻿<ContentDialog
+    x:Class="iSee.SignInContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iSee"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    PrimaryButtonText="登录"  
+    SecondaryButtonText="取消"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" MaxHeight="450" FullSizeDesired="True">
+
+    <ContentDialog.Resources>
+        <!-- These flyouts or used for confirmation when the user changes 
+         the option to save their user name. -->
+
+        <Flyout x:Key="DiscardNameFlyout" Closed="Flyout_Closed">
+            <StackPanel>
+                <TextBlock Text="确认不保存用户名？"/>
+                <Button Content="不保存" Click="DiscardButton_Click"/>
+            </StackPanel>
+        </Flyout>
+        <Flyout x:Key="SaveNameFlyout" Closed="Flyout_Closed">
+            <StackPanel>
+                <TextBlock Text="确认保存用户名？"/>
+                <Button Content="保存" Click="SaveButton_Click"/>
+            </StackPanel>
+        </Flyout>
+    </ContentDialog.Resources>
+    <StackPanel x:Name="loginStackPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="300">
+        <TextBlock Text="登录 iSee" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="20"></TextBlock>
+        <TextBox x:Name="userNameTextBox" Header="用户名"/>
+        <PasswordBox x:Name="passwordTextBox" Header="密码" IsPasswordRevealButtonEnabled="True"/>
+        <CheckBox x:Name="saveUserNameCheckBox" Content="保存用户名"/>
+
+        <TextBlock x:Name="errorTextBlock" />
+
+            <!-- Content body -->
+        <TextBlock x:Name="body" TextWrapping="Wrap">
+            <TextBlock.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</TextBlock.Text>
+        </TextBlock>
+    </StackPanel>
+</ContentDialog>
