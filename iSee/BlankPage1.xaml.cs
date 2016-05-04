@@ -25,6 +25,10 @@ namespace iSee
         public BlankPage1()
         {
             this.InitializeComponent();
+            gridView.Items.Add("Item 1");
+            gridView.Items.Add("Item 2");
+            gridView.Items.Add("Item 3");
+            //gridView1.SelectionChanged += GridView_SelectionChanged;
         }
     }
 }
