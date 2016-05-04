@@ -145,6 +145,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
       <RootProperty Name="PrimaryButtonText" />
       <RootProperty Name="SecondaryButtonText" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="FullSizeDesired" />
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
       <RootEvent Name="PrimaryButtonClick" />
