@@ -28,4 +28,19 @@ namespace iSee
             this.InitializeComponent();
         }
     }
+
+    public class CoverWidthConvert : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            double height = (double)value;
+            Debug.WriteLine(height);
+            return height * 5 / 7;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            return true;
+        }
+    }
 }

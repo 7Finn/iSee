@@ -121,6 +121,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\UserImage.jpg" />
+    <Content Include="Assets\华尔街之狼.jpg" />
+    <Content Include="Assets\小黄人大眼萌.jpg" />
+    <Content Include="Assets\驯龙高手2.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

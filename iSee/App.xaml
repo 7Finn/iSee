@@ -16,7 +16,13 @@
                  -->
                 <ResourceDictionary Source="/Styles/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <!--<local:ScenarioBindingConverter x:Key="ScenarioConverter"/> -->
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <ImageBrush x:Key="HubTestImage" ImageSource="Assets/驯龙高手2.jpg"></ImageBrush>
+                    <ImageBrush x:Key="HubTestImage2" ImageSource="Assets/小黄人大眼萌.jpg"></ImageBrush>
+                    <ImageBrush x:Key="HubTestImage3" ImageSource="Assets/华尔街之狼.jpg"></ImageBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Application.Resources>
     
