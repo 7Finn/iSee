@@ -13,22 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
+//“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
-namespace iSee
+namespace User
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class BlankPage1 : Page
+    public sealed partial class MainPage : Page
     {
-        public BlankPage1()
+        public MainPage()
         {
             this.InitializeComponent();
-            gridView.Items.Add("Item 1");
-            gridView.Items.Add("Item 2");
-            gridView.Items.Add("Item 3");
-            //gridView1.SelectionChanged += GridView_SelectionChanged;
         }
     }
 }

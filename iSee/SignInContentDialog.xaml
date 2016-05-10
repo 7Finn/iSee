@@ -9,7 +9,7 @@
     PrimaryButtonText="登录"  
     SecondaryButtonText="取消"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" MaxHeight="450" FullSizeDesired="True">
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <ContentDialog.Resources>
         <!-- These flyouts or used for confirmation when the user changes 
@@ -38,7 +38,7 @@
 
             <!-- Content body -->
         <TextBlock x:Name="body" TextWrapping="Wrap">
-            <TextBlock.Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</TextBlock.Text>
+            <TextBlock.Text>or incididunt ut labore et dolore magna aliqua.</TextBlock.Text>
         </TextBlock>
     </StackPanel>
 </ContentDialog>

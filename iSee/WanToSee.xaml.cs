@@ -21,9 +21,9 @@ namespace iSee
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class BlankPage : Page
+    public sealed partial class WantToSee : Page
     {
-        public BlankPage()
+        public WantToSee()
         {
             this.InitializeComponent();
         }

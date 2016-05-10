@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SQLitePCL;
+using System;
+using System.Collections.Generic;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,14 +27,20 @@ namespace iSee
             this.Closing += SignInContentDialog_Closing;
         }
 
+        public static User current_user = null;
+
         /// <summary>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
+        /// 
+        
+
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // Ensure the user name and password fields aren't empty. If a required field
             // is empty, set args.Cancel = true to keep the dialog open.
+            
             if (string.IsNullOrEmpty(userNameTextBox.Text))
             {
                 args.Cancel = true;
@@ -41,6 +50,17 @@ namespace iSee
             {
                 args.Cancel = true;
                 errorTextBlock.Text = "Password is required.";
+            } else
+            {
+                if (signin_is_vaild(userNameTextBox.Text, passwordTextBox.Password))
+                {
+                    //ViewModel.AddUser(userNameTextBox.Text, passwordTextBox.Password);
+                    this.Result = SignInResult.SignInOK;
+                    //insert_user(userNameTextBox.Text, passwordTextBox.Password);
+                } else
+                {
+                    args.Cancel = true;
+                }
             }
 
             // If you're performing async operations in the button click handler,
@@ -60,6 +80,99 @@ namespace iSee
             */
             deferral.Complete();
         }
+    
+
+        public bool signin_is_vaild(string name, string password)
+        {
+            //List<User> listUser = new List<User>();
+            var db = new SQLiteConnection("isee_user.db");
+            User select_user = null;
+            using (var statement = db.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
+            {
+                statement.Bind(1, name);
+                SQLiteResult result = statement.Step();
+                
+                while (SQLiteResult.ROW == result)
+                {             
+                    if (statement[2].ToString() != password)
+                    {
+                        errorTextBlock.Text = "用户名或密码错误";
+                        return false;
+                    }
+                    else
+                    {
+                        select_user = new User(statement[0].ToString(), statement[1].ToString(), statement[2].ToString());
+                        current_user = select_user;
+                        return true;
+                    }
+                }
+                
+                errorTextBlock.Text = "用户名不存在";
+                return false;
+            }
+        }
+
+        /*private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            if (string.IsNullOrEmpty(userNameTextBox.Text))
+            {
+                args.Cancel = true;
+                errorTextBlock.Text = "User name is required.";
+            }
+            else if (string.IsNullOrEmpty(passwordTextBox.Password))
+            {
+                args.Cancel = true;
+                errorTextBlock.Text = "Password is required.";
+            }
+            else
+            {
+                if (signup_is_vaild(userNameTextBox.Text))
+                {
+                    this.Result = SignInResult.SignInOK;
+                    insert_user(userNameTextBox.Text, passwordTextBox.Password);
+                } else
+                {
+
+                }
+            }
+        }*/
+        public bool signup_is_vaild(string name)
+        {
+            var db = new SQLiteConnection("isee_user.db");
+            //User select_user = null;
+            using (var statement = db.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
+            {
+                statement.Bind(1, name);
+                SQLiteResult result = statement.Step();
+
+                while (SQLiteResult.ROW == result)
+                {
+                    errorTextBlock.Text = "用户名已存在";
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public void insert_user(string name, string password)
+        {
+            var db = new SQLiteConnection("isee_user.db");
+            try
+            {
+                using (var add_user = db.Prepare("INSERT INTO User(Name, Password) VALUES(?,?)"))
+                {
+                    add_user.Bind(1, name);
+                    add_user.Bind(2, password);
+                    add_user.Step();
+                }
+            }
+            catch
+            {
+                var i = new MessageDialog("sign up failed").ShowAsync();
+            }
+        }
+
+
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
@@ -145,5 +258,6 @@ namespace iSee
         {
             this.Hide();
         }
+
     }
 }

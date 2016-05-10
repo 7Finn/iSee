@@ -1,18 +1,25 @@
-﻿using System;
+﻿using SQLitePCL;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -32,6 +39,7 @@ namespace iSee
             Current = this;
             InitialzeTitleBar();
         }
+        
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -111,26 +119,76 @@ namespace iSee
             viewTitleBar.ButtonHoverForegroundColor = Colors.White;
         }
 
+        public bool is_signin = false;
+
         private async void ShowSignInDialogButton_Click(object sender, RoutedEventArgs e)
         {
-            SignInContentDialog signInDialog = new SignInContentDialog();
-            await signInDialog.ShowAsync(); //获取返回值
+            if (is_signin == false)
+            {
+                SignInContentDialog signInDialog = new SignInContentDialog();
+                await signInDialog.ShowAsync(); //获取返回值
 
-            if (signInDialog.Result == SignInResult.SignInOK)
+                if (signInDialog.Result == SignInResult.SignInOK)
+                {
+                    // Sign in was successful.
+                    is_signin = true;
+                    current_user_name.Text = SignInContentDialog.current_user.name;
+                    signin_button.Content = "注销";
+
+
+                }
+                else if (signInDialog.Result == SignInResult.SignInFail)
+                {
+                    // Sign in failed.
+                }
+                else if (signInDialog.Result == SignInResult.SignInCancel)
+                {
+                    // Sign in was cancelled by the user.
+                }
+            } else
             {
-                // Sign in was successful.
-            }
-            else if (signInDialog.Result == SignInResult.SignInFail)
-            {
-                // Sign in failed.
-            }
-            else if (signInDialog.Result == SignInResult.SignInCancel)
-            {
-                // Sign in was cancelled by the user.
+                is_signin = false;
+                //head_image.ImageSource = "Assets/UserImage.jpg";
+                current_user_name.Text = "未登录";
+                signin_button.Content = "登录";
             }
         }
 
+        private async void ShowRegisterDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterContentDialog registerDialog = new RegisterContentDialog();
+            await registerDialog.ShowAsync(); //获取返回值
+        }
 
+        private async void SelectPictureButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (is_signin == true)
+            {
+                FileOpenPicker picker = new FileOpenPicker();
+
+                //设置打开时的默认路径，这里选择的是图片库
+                picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+                //添加可选择的文件类型
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".jpeg");
+                picker.FileTypeFilter.Add(".png");
+
+                //选择打开多个文件
+                //IReadOnlyList<StorageFile> files = await picker.PickMultipleFilesAsync();
+                //只选择一个文件
+                StorageFile file = await picker.PickSingleFileAsync();
+                if (file != null)
+                {
+                    using (IRandomAccessStream fileStream =
+                           await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                    {
+                        BitmapImage bitmapImage = new BitmapImage();
+                        await bitmapImage.SetSourceAsync(fileStream);
+                        head_image.ImageSource = bitmapImage;
+                    }
+                }
+            }
+        }
     }
 
     public enum NotifyType

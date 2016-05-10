@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLitePCL;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,13 +21,13 @@ namespace iSee
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class iSee : Application
     {
         /// <summary>
         /// 初始化单一实例应用程序对象。这是执行的创作代码的第一行，
         /// 已执行，逻辑上等同于 main() 或 WinMain()。
         /// </summary>
-        public App()
+        public iSee()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
@@ -34,8 +35,24 @@ namespace iSee
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-        }
 
+            LoadDatabase();
+        }
+        public static SQLiteConnection conn;
+
+        private void LoadDatabase()
+        {
+            conn = new SQLiteConnection("isee_user.db");
+            string sql = @"CREATE TABLE IF NOT EXISTS
+                            User(Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                Name VARCHAR(140),
+                                Password VARCHAR(140)
+                            );";
+            using (var statement = conn.Prepare(sql))
+            {
+                statement.Step();
+            }
+        }
         /// <summary>
         /// 在应用程序由最终用户正常启动时进行调用。
         /// 将在启动应用程序以打开特定文件等情况下使用。

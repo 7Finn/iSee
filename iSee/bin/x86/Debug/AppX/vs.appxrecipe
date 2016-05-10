@@ -9,8 +9,8 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>50d5a145-9e09-474c-8e62-a4073f7d6616</PackageIdentityName>
-    <IntermediateOutputPath>g:\documents\visual studio 2015\Projects\iSee\iSee\obj\x86\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>D5BE1D36EB4A24C49972F52ED62DF8DD1F74738647EC58F692EB91221063152D</RegisteredManifestChecksum>
+    <IntermediateOutputPath>G:\Documents\Visual Studio 2015\Projects\iSee\iSee\obj\x86\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>DA872036AD329A1B012A2DE35CF97E5B9ECA12497951075EB9E6965986C59658</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>50d5a145-9e09-474c-8e62-a4073f7d6616_1.0.0.0_x86__2knzddbzdg48w</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>50d5a145-9e09-474c-8e62-a4073f7d6616_2knzddbzdg48w!App</RegisteredUserModeAppID>
     <RegisteredPackageID>50d5a145-9e09-474c-8e62-a4073f7d6616</RegisteredPackageID>
@@ -19,16 +19,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-04T03:30:57.878</Modified>
+      <Modified>2016-05-10T08:55:05.907</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
       <PackagePath>entrypoint\iSee.exe</PackagePath>
-      <Modified>2016-05-04T03:30:36.316</Modified>
+      <Modified>2016-05-10T08:55:05.112</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -101,6 +101,10 @@
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2016-02-24T15:42:05.711</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\SQLitePCL\3.8.7.2\lib\netcore451\SQLitePCL.dll">
+      <PackagePath>SQLitePCL.dll</PackagePath>
+      <Modified>2016-03-30T06:55:03.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\System.AppContext\4.0.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -454,79 +458,91 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-02-24T15:42:05.944</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.12.0\Redist\Debug\x86\sqlite3.dll">
+      <PackagePath>sqlite3.dll</PackagePath>
+      <Modified>2016-03-30T06:52:12.788</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\SQLitePCL\3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
+      <PackagePath>SQLitePCL.Ext.dll</PackagePath>
+      <Modified>2016-03-30T06:55:03.569</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
-      <Modified>2016-04-18T14:59:30.415</Modified>
+      <Modified>2016-04-18T14:59:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\UserImage.jpg">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Resources\FontAwesome.otf">
+      <PackagePath>Resources\FontAwesome.otf</PackagePath>
+      <Modified>2016-05-10T08:41:40.131</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\UserImage.jpg">
       <PackagePath>Assets\UserImage.jpg</PackagePath>
-      <Modified>2016-04-19T08:21:40.761</Modified>
+      <Modified>2016-04-19T08:21:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\华尔街之狼.jpg">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\华尔街之狼.jpg">
       <PackagePath>Assets\华尔街之狼.jpg</PackagePath>
-      <Modified>2016-05-04T03:02:24.823</Modified>
+      <Modified>2016-05-04T03:02:26.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\小黄人大眼萌.jpg">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\小黄人大眼萌.jpg">
       <PackagePath>Assets\小黄人大眼萌.jpg</PackagePath>
-      <Modified>2016-05-04T03:02:32.878</Modified>
+      <Modified>2016-05-04T03:02:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\驯龙高手2.jpg">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\驯龙高手2.jpg">
       <PackagePath>Assets\驯龙高手2.jpg</PackagePath>
-      <Modified>2016-05-04T01:23:23.267</Modified>
+      <Modified>2016-05-04T01:23:24.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2016-04-18T14:59:20.737</Modified>
+      <Modified>2016-04-18T14:59:22.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T08:22:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.xr.xml">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.xr.xml">
       <PackagePath>iSee.xr.xml</PackagePath>
-      <Modified>2016-05-04T03:28:58.460</Modified>
+      <Modified>2016-05-10T08:55:04.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-02-24T15:18:40.708</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-04T03:30:57.779</Modified>
+      <Modified>2016-05-10T08:55:05.545</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\iSee.exe">
+    <AppxPackagedFile Include="G:\Documents\Visual Studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\iSee.exe">
       <PackagePath>iSee.exe</PackagePath>
-      <Modified>2016-05-04T03:30:57.877</Modified>
+      <Modified>2016-05-10T08:55:05.906</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
