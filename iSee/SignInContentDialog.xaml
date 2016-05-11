@@ -9,7 +9,7 @@
     PrimaryButtonText="登录"  
     SecondaryButtonText="取消"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" Height="330">
 
     <ContentDialog.Resources>
         <!-- These flyouts or used for confirmation when the user changes 
@@ -30,15 +30,21 @@
     </ContentDialog.Resources>
     <StackPanel x:Name="loginStackPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="300">
         <TextBlock Text="登录 iSee" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10" FontSize="20"></TextBlock>
-        <TextBox x:Name="userNameTextBox" Header="用户名"/>
-        <PasswordBox x:Name="passwordTextBox" Header="密码" IsPasswordRevealButtonEnabled="True"/>
-        <CheckBox x:Name="saveUserNameCheckBox" Content="保存用户名"/>
+        <TextBox x:Name="userNameTextBox" PlaceholderText="用户名" Style="{StaticResource TextInput}" Margin="0,0,0,20"/>
+        <PasswordBox x:Name="passwordTextBox" IsPasswordRevealButtonEnabled="True" PlaceholderText="密码" Style="{StaticResource PasswordInput}" Margin="0,0,0,10"/>
+        <CheckBox x:Name="saveUserNameCheckBox" Content="保存用户名" FontSize="13.333" />
 
         <TextBlock x:Name="errorTextBlock" />
 
             <!-- Content body -->
-        <TextBlock x:Name="body" TextWrapping="Wrap">
-            <TextBlock.Text>or incididunt ut labore et dolore magna aliqua.</TextBlock.Text>
-        </TextBlock>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock x:Name="body" TextWrapping="Wrap" VerticalAlignment="Center" Text="没有账号？点击" />
+            <AppBarButton Click="ShowRegisterDialogButton_Click" Foreground="#FF2B9B44" Width="30" Height="41" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Left">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Resources/FontAwesome.otf#FontAwesome" Glyph="&#xF234;" FontSize="20"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <TextBlock Text="注册" VerticalAlignment="Center" />
+        </StackPanel>
     </StackPanel>
 </ContentDialog>

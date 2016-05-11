@@ -92,6 +92,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
     <None Include="project.json" />
     <Content Include="Resources\FontAwesome.otf" />
   </ItemGroup>
@@ -120,8 +121,8 @@
     <Compile Include="SignInContentDialog.xaml.cs">
       <DependentUpon>SignInContentDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="UserViewModel.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

@@ -178,6 +178,7 @@ namespace iSee
         {
             // User clicked Cancel.
             this.Result = SignInResult.SignInCancel;
+            this.Hide();
         }
 
         void SignInContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
@@ -259,5 +260,11 @@ namespace iSee
             this.Hide();
         }
 
+        private async void ShowRegisterDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            RegisterContentDialog registerDialog = new RegisterContentDialog();
+            await registerDialog.ShowAsync(); //获取返回值
+        }
     }
 }
