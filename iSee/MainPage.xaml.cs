@@ -133,7 +133,7 @@ namespace iSee
                     // Sign in was successful.
                     is_signin = true;
                     current_user_name.Text = SignInContentDialog.current_user.name;
-                    signin_button.Content = "注销";
+                    //signin_button.Content = "注销";
 
 
                 }
@@ -150,7 +150,7 @@ namespace iSee
                 is_signin = false;
                 //head_image.ImageSource = "Assets/UserImage.jpg";
                 current_user_name.Text = "未登录";
-                signin_button.Content = "登录";
+                //signin_button.Content = "登录";
             }
         }
 

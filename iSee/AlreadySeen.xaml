@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
-        <GridView>
-            <GridViewItem Margin="0" Width="200">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20" Margin="0,0,0,-71">
+        <GridView Style="{StaticResource GridViewStyle}">
+            <GridViewItem Width="200" Style="{StaticResource AlreadySeenGridViewItemStyle}" >
                 <StackPanel>
-                    <Image Source="Assets/华尔街之狼.jpg" />
+                    <Image Source="Assets/华尔街之狼.jpg" Stretch="UniformToFill" Height="280" />
                     <StackPanel Padding="5">
                         <TextBlock Text="华尔街之狼"/>
                         <StackPanel Orientation="Horizontal">
@@ -29,6 +29,27 @@
                     </StackPanel>
                 </StackPanel>
             </GridViewItem>
+            <GridViewItem Width="200" Style="{StaticResource AlreadySeenGridViewItemStyle}" >
+                <StackPanel>
+                    <Image Source="Assets/驯龙高手2.jpg" VerticalAlignment="Top" Stretch="UniformToFill" Height="280" />
+                    <StackPanel Padding="5">
+                        <TextBlock Text="驯龙高手2"/>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Width="40" Height="40">
+                                <AppBarButton.Icon>
+                                    <FontIcon Glyph="&#xF088;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
+                                </AppBarButton.Icon>
+                            </AppBarButton>
+                            <AppBarButton Width="40" Height="40">
+                                <AppBarButton.Icon>
+                                    <FontIcon Glyph="&#xf006;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FFFB5D44"/>
+                                </AppBarButton.Icon>
+                            </AppBarButton>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </GridViewItem>
+            
         </GridView>
     </Grid>
 </Page>

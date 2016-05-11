@@ -13,49 +13,32 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Hub x:Name="hub" Header="我想看的">
-            <HubSection MinWidth="300" Header="最近想看">
+            <HubSection MinWidth="250" Header="Latest">
                 <DataTemplate>
-                    <Grid>
-                        <TextBlock Text="The most recent news will be here." 
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox PlaceholderText="搜索电影" Width="200"/>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="华尔街之狼" IsHeaderInteractive="True"  
+                Background="#eeeeee" MinWidth="300">
+                <DataTemplate>
+                    <Image Source="Assets/华尔街之狼.jpg" />
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Header="小黄人大眼萌" IsHeaderInteractive="True" 
+                MinWidth="300">
+                <DataTemplate>
+                    <Image Source="Assets/小黄人大眼萌.jpg" />
                 </DataTemplate>
             </HubSection>
 
             <HubSection Header="驯龙高手2" IsHeaderInteractive="True"  
-                Background="{StaticResource HubTestImage}" MinWidth="300" Width="{Binding ActualHeight, Converter={StaticResource CoverWidthConvert}, ElementName=page, Mode=OneWay}">
+                Background="#eeeeee" MinWidth="300">
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Height, ElementName=page, Mode=OneWay}" />
-                        <TextBlock Text="Tech news goes here."
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                        <TextBlock Text="Click the header to go to the Tech page."
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-
-            <HubSection Header="Sports" IsHeaderInteractive="True" 
-                Background="{StaticResource HubTestImage2}" MinWidth="300" Width="{Binding ActualHeight, Converter={StaticResource CoverWidthConvert}, ElementName=page, Mode=OneWay}">
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="Sports news goes here."
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                        <TextBlock Text="Click the header to go to the Sports page." 
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                    </StackPanel>
-                </DataTemplate>
-            </HubSection>
-
-            <HubSection Header="Sports" IsHeaderInteractive="True" 
-                Background="{StaticResource HubTestImage3}" MinWidth="300" Width="{Binding ActualHeight, Converter={StaticResource CoverWidthConvert}, ElementName=page, Mode=OneWay}">
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="Sports news goes here."
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                        <TextBlock Text="Click the header to go to the Sports page." 
-                           Style="{ThemeResource BodyTextBlockStyle}" />
-                    </StackPanel>
+                    <Image Source="Assets/驯龙高手2.jpg" />
                 </DataTemplate>
             </HubSection>
         </Hub>

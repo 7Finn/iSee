@@ -9,7 +9,7 @@
     PrimaryButtonText="登录"  
     SecondaryButtonText="取消"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" Height="330">
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" >
 
     <ContentDialog.Resources>
         <!-- These flyouts or used for confirmation when the user changes 
@@ -39,7 +39,7 @@
             <!-- Content body -->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock x:Name="body" TextWrapping="Wrap" VerticalAlignment="Center" Text="没有账号？点击" />
-            <AppBarButton Click="ShowRegisterDialogButton_Click" Foreground="#FF2B9B44" Width="30" Height="41" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Left">
+            <AppBarButton Click="ShowRegisterDialogButton_Click" Width="30" Height="41" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Left" Style="{StaticResource RegisterAppBarButtonStyle}">
                 <AppBarButton.Icon>
                     <FontIcon FontFamily="Resources/FontAwesome.otf#FontAwesome" Glyph="&#xF234;" FontSize="20"/>
                 </AppBarButton.Icon>
