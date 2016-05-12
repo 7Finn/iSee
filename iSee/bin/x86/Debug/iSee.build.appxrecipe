@@ -342,6 +342,18 @@
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Win2D.uwp\1.7.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Win2D.uwp\1.7.0\lib\uap10.0\Workaround1200257.dll">
+      <PackagePath>Workaround1200257.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\XPShadow\0.1.2\lib\uap10.0\XPShadow.dll">
+      <PackagePath>XPShadow.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Win2D.uwp\1.7.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.12.0\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
@@ -401,6 +413,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\XPShadow\0.1.2\lib\uap10.0\XPShadow\XPShadow.xr.xml">
+      <PackagePath>XPShadow\XPShadow.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\XPShadow\0.1.2\lib\uap10.0\XPShadow\Properties\XPShadow.rd.xml">
+      <PackagePath>XPShadow\Properties\XPShadow.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

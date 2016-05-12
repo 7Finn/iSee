@@ -145,11 +145,13 @@ namespace iSee
                 {
                     // Sign in was cancelled by the user.
                 }
-            } else
+            }
+            else
             {
-                is_signin = false;
+                this.SelectPictureButton_Click(sender, e);
+                //is_signin = false;
                 //head_image.ImageSource = "Assets/UserImage.jpg";
-                current_user_name.Text = "未登录";
+                //current_user_name.Text = "未登录";
                 //signin_button.Content = "登录";
             }
         }

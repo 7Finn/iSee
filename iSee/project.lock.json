@@ -1574,6 +1574,27 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -3238,6 +3259,30 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -4873,6 +4918,30 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
         }
       }
     },
@@ -6543,6 +6612,30 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -8178,6 +8271,30 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
         }
       }
     },
@@ -9848,6 +9965,30 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -11483,6 +11624,30 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Win2D.uwp/1.7.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "XPShadow/0.1.2": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/XPShadow.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/XPShadow.dll": {}
         }
       }
     }
@@ -14963,6 +15128,43 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll",
         "System.Xml.XmlSerializer.nuspec"
       ]
+    },
+    "Win2D.uwp/1.7.0": {
+      "sha512": "q1/BSLPlwzAjh96AOLM0y+qELWn/+hHcUvELNqELf1fX6zFfSAp7eRFamOXuazTDvPKzr0YeQ8J5ErE8oYkRBA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "build/native/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/en/Microsoft.Graphics.Canvas.xml",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "lib/uap10.0/Workaround1200257.dll",
+        "package/services/metadata/core-properties/804e31f876b743ed933710f3069c4090.psmdcp",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "Win2d.githash.txt",
+        "Win2D.uwp.nuspec"
+      ]
+    },
+    "XPShadow/0.1.2": {
+      "sha512": "XSPb5K6kkXa1g+I+9w4oGlqEsiag0inN5TJQtUyA9VB8m86kQlNU2jyqF9T6GABc08CiYrUgb5TDnwwh7hWXVw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/XPShadow.dll",
+        "lib/uap10.0/XPShadow.pdb",
+        "lib/uap10.0/XPShadow.pri",
+        "lib/uap10.0/XPShadow/Generic.xbf",
+        "lib/uap10.0/XPShadow/Properties/XPShadow.rd.xml",
+        "lib/uap10.0/XPShadow/XPShadow.xr.xml",
+        "package/services/metadata/core-properties/b269b3b922ce4c09bc9b59bd28d9035d.psmdcp",
+        "XPShadow.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -14971,7 +15173,8 @@
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "SQLitePCL >= 3.8.7.2"
+      "SQLitePCL >= 3.8.7.2",
+      "XPShadow >= 0.1.2"
     ],
     "UAP,Version=v10.0": []
   }

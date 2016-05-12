@@ -67,6 +67,18 @@ namespace iSee.iSee_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
+            var userXamlType = xamlType as global::iSee.iSee_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
+            }
             if (xamlType != null)
             {
                 _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -90,6 +102,18 @@ namespace iSee.iSee_XamlTypeInfo
             if(typeIndex != -1)
             {
                 xamlType = CreateXamlType(typeIndex);
+            }
+            var userXamlType = xamlType as global::iSee.iSee_XamlTypeInfo.XamlUserType;
+            if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+            {
+                global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                if (libXamlType != null)
+                {
+                    if(libXamlType.IsConstructible || xamlType == null)
+                    {
+                        xamlType = libXamlType;
+                    }
+                }
             }
             if (xamlType != null)
             {
@@ -132,53 +156,61 @@ namespace iSee.iSee_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
-            _typeNameTable[0] = "iSee.MovieRecommend";
+            _typeNameTable = new string[26];
+            _typeNameTable[0] = "iSee.BlankPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "iSee.CoverWidthConvert";
-            _typeNameTable[4] = "Object";
-            _typeNameTable[5] = "iSee.WantToSee";
-            _typeNameTable[6] = "iSee.AlreadySeen";
-            _typeNameTable[7] = "iSee.ScenarioBindingConverter";
-            _typeNameTable[8] = "iSee.ScenarioBindingConverterSymbol";
-            _typeNameTable[9] = "iSee.MainPage";
-            _typeNameTable[10] = "System.Collections.Generic.List`1<iSee.Scenario>";
-            _typeNameTable[11] = "iSee.Scenario";
-            _typeNameTable[12] = "String";
-            _typeNameTable[13] = "System.Type";
-            _typeNameTable[14] = "iSee.RegisterContentDialog";
-            _typeNameTable[15] = "Windows.UI.Xaml.Controls.ContentDialog";
-            _typeNameTable[16] = "Windows.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[17] = "iSee.RegistResult";
-            _typeNameTable[18] = "System.Enum";
-            _typeNameTable[19] = "System.ValueType";
-            _typeNameTable[20] = "iSee.SignInContentDialog";
-            _typeNameTable[21] = "iSee.SignInResult";
+            _typeNameTable[3] = "iSee.MovieRecommend";
+            _typeNameTable[4] = "iSee.CoverWidthConvert";
+            _typeNameTable[5] = "Object";
+            _typeNameTable[6] = "XP.Shadow";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[8] = "Double";
+            _typeNameTable[9] = "Int32";
+            _typeNameTable[10] = "iSee.WantToSee";
+            _typeNameTable[11] = "iSee.AlreadySeen";
+            _typeNameTable[12] = "iSee.ScenarioBindingConverter";
+            _typeNameTable[13] = "iSee.ScenarioBindingConverterSymbol";
+            _typeNameTable[14] = "iSee.MainPage";
+            _typeNameTable[15] = "System.Collections.Generic.List`1<iSee.Scenario>";
+            _typeNameTable[16] = "iSee.Scenario";
+            _typeNameTable[17] = "String";
+            _typeNameTable[18] = "System.Type";
+            _typeNameTable[19] = "iSee.RegisterContentDialog";
+            _typeNameTable[20] = "Windows.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[21] = "iSee.RegistResult";
+            _typeNameTable[22] = "System.Enum";
+            _typeNameTable[23] = "System.ValueType";
+            _typeNameTable[24] = "iSee.SignInContentDialog";
+            _typeNameTable[25] = "iSee.SignInResult";
 
-            _typeTable = new global::System.Type[22];
-            _typeTable[0] = typeof(global::iSee.MovieRecommend);
+            _typeTable = new global::System.Type[26];
+            _typeTable[0] = typeof(global::iSee.BlankPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::iSee.CoverWidthConvert);
-            _typeTable[4] = typeof(global::System.Object);
-            _typeTable[5] = typeof(global::iSee.WantToSee);
-            _typeTable[6] = typeof(global::iSee.AlreadySeen);
-            _typeTable[7] = typeof(global::iSee.ScenarioBindingConverter);
-            _typeTable[8] = typeof(global::iSee.ScenarioBindingConverterSymbol);
-            _typeTable[9] = typeof(global::iSee.MainPage);
-            _typeTable[10] = typeof(global::System.Collections.Generic.List<global::iSee.Scenario>);
-            _typeTable[11] = typeof(global::iSee.Scenario);
-            _typeTable[12] = typeof(global::System.String);
-            _typeTable[13] = typeof(global::System.Type);
-            _typeTable[14] = typeof(global::iSee.RegisterContentDialog);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
-            _typeTable[16] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
-            _typeTable[17] = typeof(global::iSee.RegistResult);
-            _typeTable[18] = typeof(global::System.Enum);
-            _typeTable[19] = typeof(global::System.ValueType);
-            _typeTable[20] = typeof(global::iSee.SignInContentDialog);
-            _typeTable[21] = typeof(global::iSee.SignInResult);
+            _typeTable[3] = typeof(global::iSee.MovieRecommend);
+            _typeTable[4] = typeof(global::iSee.CoverWidthConvert);
+            _typeTable[5] = typeof(global::System.Object);
+            _typeTable[6] = typeof(global::XP.Shadow);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[8] = typeof(global::System.Double);
+            _typeTable[9] = typeof(global::System.Int32);
+            _typeTable[10] = typeof(global::iSee.WantToSee);
+            _typeTable[11] = typeof(global::iSee.AlreadySeen);
+            _typeTable[12] = typeof(global::iSee.ScenarioBindingConverter);
+            _typeTable[13] = typeof(global::iSee.ScenarioBindingConverterSymbol);
+            _typeTable[14] = typeof(global::iSee.MainPage);
+            _typeTable[15] = typeof(global::System.Collections.Generic.List<global::iSee.Scenario>);
+            _typeTable[16] = typeof(global::iSee.Scenario);
+            _typeTable[17] = typeof(global::System.String);
+            _typeTable[18] = typeof(global::System.Type);
+            _typeTable[19] = typeof(global::iSee.RegisterContentDialog);
+            _typeTable[20] = typeof(global::Windows.UI.Xaml.Controls.ContentDialog);
+            _typeTable[21] = typeof(global::iSee.RegistResult);
+            _typeTable[22] = typeof(global::System.Enum);
+            _typeTable[23] = typeof(global::System.ValueType);
+            _typeTable[24] = typeof(global::iSee.SignInContentDialog);
+            _typeTable[25] = typeof(global::iSee.SignInResult);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -213,18 +245,20 @@ namespace iSee.iSee_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MovieRecommend() { return new global::iSee.MovieRecommend(); }
-        private object Activate_3_CoverWidthConvert() { return new global::iSee.CoverWidthConvert(); }
-        private object Activate_5_WantToSee() { return new global::iSee.WantToSee(); }
-        private object Activate_6_AlreadySeen() { return new global::iSee.AlreadySeen(); }
-        private object Activate_7_ScenarioBindingConverter() { return new global::iSee.ScenarioBindingConverter(); }
-        private object Activate_8_ScenarioBindingConverterSymbol() { return new global::iSee.ScenarioBindingConverterSymbol(); }
-        private object Activate_9_MainPage() { return new global::iSee.MainPage(); }
-        private object Activate_10_List() { return new global::System.Collections.Generic.List<global::iSee.Scenario>(); }
-        private object Activate_11_Scenario() { return new global::iSee.Scenario(); }
-        private object Activate_14_RegisterContentDialog() { return new global::iSee.RegisterContentDialog(); }
-        private object Activate_20_SignInContentDialog() { return new global::iSee.SignInContentDialog(); }
-        private void VectorAdd_10_List(object instance, object item)
+        private object Activate_0_BlankPage() { return new global::iSee.BlankPage(); }
+        private object Activate_3_MovieRecommend() { return new global::iSee.MovieRecommend(); }
+        private object Activate_4_CoverWidthConvert() { return new global::iSee.CoverWidthConvert(); }
+        private object Activate_6_Shadow() { return new global::XP.Shadow(); }
+        private object Activate_10_WantToSee() { return new global::iSee.WantToSee(); }
+        private object Activate_11_AlreadySeen() { return new global::iSee.AlreadySeen(); }
+        private object Activate_12_ScenarioBindingConverter() { return new global::iSee.ScenarioBindingConverter(); }
+        private object Activate_13_ScenarioBindingConverterSymbol() { return new global::iSee.ScenarioBindingConverterSymbol(); }
+        private object Activate_14_MainPage() { return new global::iSee.MainPage(); }
+        private object Activate_15_List() { return new global::System.Collections.Generic.List<global::iSee.Scenario>(); }
+        private object Activate_16_Scenario() { return new global::iSee.Scenario(); }
+        private object Activate_19_RegisterContentDialog() { return new global::iSee.RegisterContentDialog(); }
+        private object Activate_24_SignInContentDialog() { return new global::iSee.SignInContentDialog(); }
+        private void VectorAdd_15_List(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::iSee.Scenario>)instance;
             var newItem = (global::iSee.Scenario)item;
@@ -241,9 +275,9 @@ namespace iSee.iSee_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  iSee.MovieRecommend
+            case 0:   //  iSee.BlankPage
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MovieRecommend;
+                userType.Activator = Activate_0_BlankPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -256,63 +290,90 @@ namespace iSee.iSee_XamlTypeInfo
                 xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  iSee.CoverWidthConvert
-                userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_3_CoverWidthConvert;
+            case 3:   //  iSee.MovieRecommend
+                userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_3_MovieRecommend;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Object
+            case 4:   //  iSee.CoverWidthConvert
+                userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_4_CoverWidthConvert;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Object
                 xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  iSee.WantToSee
+            case 6:   //  XP.Shadow
+                userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
+                userType.Activator = Activate_6_Shadow;
+                userType.AddMemberName("CornerRadius");
+                userType.AddMemberName("Z_Depth");
+                xamlType = userType;
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.ContentControl
+                xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Double
+                xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Int32
+                xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  iSee.WantToSee
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_WantToSee;
+                userType.Activator = Activate_10_WantToSee;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  iSee.AlreadySeen
+            case 11:   //  iSee.AlreadySeen
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_AlreadySeen;
+                userType.Activator = Activate_11_AlreadySeen;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  iSee.ScenarioBindingConverter
+            case 12:   //  iSee.ScenarioBindingConverter
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_7_ScenarioBindingConverter;
+                userType.Activator = Activate_12_ScenarioBindingConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  iSee.ScenarioBindingConverterSymbol
+            case 13:   //  iSee.ScenarioBindingConverterSymbol
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_8_ScenarioBindingConverterSymbol;
+                userType.Activator = Activate_13_ScenarioBindingConverterSymbol;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  iSee.MainPage
+            case 14:   //  iSee.MainPage
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_MainPage;
+                userType.Activator = Activate_14_MainPage;
                 userType.AddMemberName("Scenarios");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  System.Collections.Generic.List`1<iSee.Scenario>
+            case 15:   //  System.Collections.Generic.List`1<iSee.Scenario>
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.CollectionAdd = VectorAdd_10_List;
+                userType.CollectionAdd = VectorAdd_15_List;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 11:   //  iSee.Scenario
+            case 16:   //  iSee.Scenario
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_11_Scenario;
+                userType.Activator = Activate_16_Scenario;
                 userType.AddMemberName("Symbol");
                 userType.AddMemberName("Title");
                 userType.AddMemberName("ClassType");
@@ -320,33 +381,29 @@ namespace iSee.iSee_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 12:   //  String
+            case 17:   //  String
                 xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  System.Type
+            case 18:   //  System.Type
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 14:   //  iSee.RegisterContentDialog
+            case 19:   //  iSee.RegisterContentDialog
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
-                userType.Activator = Activate_14_RegisterContentDialog;
+                userType.Activator = Activate_19_RegisterContentDialog;
                 userType.AddMemberName("Result");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  Windows.UI.Xaml.Controls.ContentDialog
+            case 20:   //  Windows.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  Windows.UI.Xaml.Controls.ContentControl
-                xamlType = new global::iSee.iSee_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 17:   //  iSee.RegistResult
+            case 21:   //  iSee.RegistResult
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("RegistOK", global::iSee.RegistResult.RegistOK);
                 userType.AddEnumValue("RegistFail", global::iSee.RegistResult.RegistFail);
@@ -356,25 +413,25 @@ namespace iSee.iSee_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 18:   //  System.Enum
+            case 22:   //  System.Enum
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 19:   //  System.ValueType
+            case 23:   //  System.ValueType
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 20:   //  iSee.SignInContentDialog
+            case 24:   //  iSee.SignInContentDialog
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentDialog"));
-                userType.Activator = Activate_20_SignInContentDialog;
+                userType.Activator = Activate_24_SignInContentDialog;
                 userType.AddMemberName("Result");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  iSee.SignInResult
+            case 25:   //  iSee.SignInResult
                 userType = new global::iSee.iSee_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("SignInOK", global::iSee.SignInResult.SignInOK);
                 userType.AddEnumValue("SignInFail", global::iSee.SignInResult.SignInFail);
@@ -387,48 +444,122 @@ namespace iSee.iSee_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::XP.XPShadow_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
 
-        private object get_0_MainPage_Scenarios(object instance)
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_Shadow_CornerRadius(object instance)
+        {
+            var that = (global::XP.Shadow)instance;
+            return that.CornerRadius;
+        }
+        private void set_0_Shadow_CornerRadius(object instance, object Value)
+        {
+            var that = (global::XP.Shadow)instance;
+            that.CornerRadius = (global::System.Double)Value;
+        }
+        private object get_1_Shadow_Z_Depth(object instance)
+        {
+            var that = (global::XP.Shadow)instance;
+            return that.Z_Depth;
+        }
+        private void set_1_Shadow_Z_Depth(object instance, object Value)
+        {
+            var that = (global::XP.Shadow)instance;
+            that.Z_Depth = (global::System.Int32)Value;
+        }
+        private object get_2_MainPage_Scenarios(object instance)
         {
             var that = (global::iSee.MainPage)instance;
             return that.Scenarios;
         }
-        private object get_1_Scenario_Symbol(object instance)
+        private object get_3_Scenario_Symbol(object instance)
         {
             var that = (global::iSee.Scenario)instance;
             return that.Symbol;
         }
-        private void set_1_Scenario_Symbol(object instance, object Value)
+        private void set_3_Scenario_Symbol(object instance, object Value)
         {
             var that = (global::iSee.Scenario)instance;
             that.Symbol = (global::System.String)Value;
         }
-        private object get_2_Scenario_Title(object instance)
+        private object get_4_Scenario_Title(object instance)
         {
             var that = (global::iSee.Scenario)instance;
             return that.Title;
         }
-        private void set_2_Scenario_Title(object instance, object Value)
+        private void set_4_Scenario_Title(object instance, object Value)
         {
             var that = (global::iSee.Scenario)instance;
             that.Title = (global::System.String)Value;
         }
-        private object get_3_Scenario_ClassType(object instance)
+        private object get_5_Scenario_ClassType(object instance)
         {
             var that = (global::iSee.Scenario)instance;
             return that.ClassType;
         }
-        private void set_3_Scenario_ClassType(object instance, object Value)
+        private void set_5_Scenario_ClassType(object instance, object Value)
         {
             var that = (global::iSee.Scenario)instance;
             that.ClassType = (global::System.Type)Value;
         }
-        private object get_4_RegisterContentDialog_Result(object instance)
+        private object get_6_RegisterContentDialog_Result(object instance)
         {
             var that = (global::iSee.RegisterContentDialog)instance;
             return that.Result;
         }
-        private object get_5_SignInContentDialog_Result(object instance)
+        private object get_7_SignInContentDialog_Result(object instance)
         {
             var that = (global::iSee.SignInContentDialog)instance;
             return that.Result;
@@ -441,40 +572,54 @@ namespace iSee.iSee_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "XP.Shadow.CornerRadius":
+                userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XP.Shadow");
+                xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "CornerRadius", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_Shadow_CornerRadius;
+                xamlMember.Setter = set_0_Shadow_CornerRadius;
+                break;
+            case "XP.Shadow.Z_Depth":
+                userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("XP.Shadow");
+                xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Z_Depth", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_1_Shadow_Z_Depth;
+                xamlMember.Setter = set_1_Shadow_Z_Depth;
+                break;
             case "iSee.MainPage.Scenarios":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.MainPage");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Scenarios", "System.Collections.Generic.List`1<iSee.Scenario>");
-                xamlMember.Getter = get_0_MainPage_Scenarios;
+                xamlMember.Getter = get_2_MainPage_Scenarios;
                 xamlMember.SetIsReadOnly();
                 break;
             case "iSee.Scenario.Symbol":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.Scenario");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Symbol", "String");
-                xamlMember.Getter = get_1_Scenario_Symbol;
-                xamlMember.Setter = set_1_Scenario_Symbol;
+                xamlMember.Getter = get_3_Scenario_Symbol;
+                xamlMember.Setter = set_3_Scenario_Symbol;
                 break;
             case "iSee.Scenario.Title":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.Scenario");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Title", "String");
-                xamlMember.Getter = get_2_Scenario_Title;
-                xamlMember.Setter = set_2_Scenario_Title;
+                xamlMember.Getter = get_4_Scenario_Title;
+                xamlMember.Setter = set_4_Scenario_Title;
                 break;
             case "iSee.Scenario.ClassType":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.Scenario");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "ClassType", "System.Type");
-                xamlMember.Getter = get_3_Scenario_ClassType;
-                xamlMember.Setter = set_3_Scenario_ClassType;
+                xamlMember.Getter = get_5_Scenario_ClassType;
+                xamlMember.Setter = set_5_Scenario_ClassType;
                 break;
             case "iSee.RegisterContentDialog.Result":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.RegisterContentDialog");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Result", "iSee.RegistResult");
-                xamlMember.Getter = get_4_RegisterContentDialog_Result;
+                xamlMember.Getter = get_6_RegisterContentDialog_Result;
                 xamlMember.SetIsReadOnly();
                 break;
             case "iSee.SignInContentDialog.Result":
                 userType = (global::iSee.iSee_XamlTypeInfo.XamlUserType)GetXamlTypeByName("iSee.SignInContentDialog");
                 xamlMember = new global::iSee.iSee_XamlTypeInfo.XamlMember(this, "Result", "iSee.SignInResult");
-                xamlMember.Getter = get_5_SignInContentDialog_Result;
+                xamlMember.Getter = get_7_SignInContentDialog_Result;
                 xamlMember.SetIsReadOnly();
                 break;
             }

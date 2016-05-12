@@ -26,7 +26,6 @@
                             <TextBlock x:Name="current_user_name" Style="{StaticResource PaneUserName}" Margin="0,10,0,0">未登录</TextBlock>
                         </StackPanel>
                     </Button>
-                    <AppBarButton x:Name="SelectPictureButton" Icon="Pictures" Label="select" Click="SelectPictureButton_Click" HorizontalAlignment="Right" Height="34" Margin="0,0,35,0" Width="33" RenderTransformOrigin="1.305,0.392"/>
                     <TextBlock Style="{StaticResource PaneHeadTitle}" Margin="10,0,0,0">我的电影</TextBlock>
                     <ListView x:Name="ScenarioControl" SelectionChanged="ScenarioControl_SelectionChanged"
                 SelectionMode="Single" Background="Transparent" BorderThickness="0"

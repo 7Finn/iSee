@@ -5,42 +5,82 @@
     xmlns:local="using:iSee"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xp="using:XP"
     mc:Ignorable="d">
 
     <Page.Resources>
         <local:CoverWidthConvert x:Key="CoverWidthConvert"></local:CoverWidthConvert>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Hub x:Name="hub" Header="我想看的">
-            <HubSection MinWidth="250" Header="Latest">
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox PlaceholderText="搜索电影" Width="200"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
+        <GridView Style="{StaticResource WantToSeeGridViewStyle}">
+            <GridViewItem HorizontalContentAlignment="Left" Height="220" Style="{StaticResource WantToSeeGridViewItemStyle}" >
+                <xp:Shadow CornerRadius="2"
+                               Z_Depth="2">
+                    <StackPanel CornerRadius="2" Orientation="Horizontal" Background="White">
+                        <Image Source="Assets/华尔街之狼.jpg" Height="220" Stretch="UniformToFill" />
+                        <Grid Padding="10,10,10,5">
+                            <StackPanel VerticalAlignment="Top">
+                                <TextBlock Text="华尔街之狼"></TextBlock>
+                                <TextBlock Text="上映时间：2015.10.01" FontSize="9.333" Foreground="#FF686868"></TextBlock>
+                            </StackPanel>
+                            <Grid VerticalAlignment="Bottom">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF088;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF006;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FFFB5D44"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF1F8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FF898989"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
                     </StackPanel>
-                </DataTemplate>
-            </HubSection>
+                </xp:Shadow>
+            </GridViewItem>
 
-            <HubSection Header="华尔街之狼" IsHeaderInteractive="True"  
-                Background="#eeeeee" MinWidth="300">
-                <DataTemplate>
-                    <Image Source="Assets/华尔街之狼.jpg" />
-                </DataTemplate>
-            </HubSection>
-
-            <HubSection Header="小黄人大眼萌" IsHeaderInteractive="True" 
-                MinWidth="300">
-                <DataTemplate>
-                    <Image Source="Assets/小黄人大眼萌.jpg" />
-                </DataTemplate>
-            </HubSection>
-
-            <HubSection Header="驯龙高手2" IsHeaderInteractive="True"  
-                Background="#eeeeee" MinWidth="300">
-                <DataTemplate>
-                    <Image Source="Assets/驯龙高手2.jpg" />
-                </DataTemplate>
-            </HubSection>
-        </Hub>
+            <GridViewItem HorizontalContentAlignment="Left" Height="220" Style="{StaticResource WantToSeeGridViewItemStyle}" >
+                <xp:Shadow CornerRadius="2"
+                               Z_Depth="2">
+                    <StackPanel Orientation="Horizontal" Background="White">
+                        <Image Source="Assets/华尔街之狼.jpg" Height="220" Stretch="UniformToFill"/>
+                        <Grid Padding="10,10,10,5">
+                            <StackPanel VerticalAlignment="Top">
+                                <TextBlock Text="华尔街之狼"></TextBlock>
+                                <TextBlock Text="上映时间：2015.10.01" FontSize="9.333" Foreground="#FF686868"></TextBlock>
+                            </StackPanel>
+                            <Grid VerticalAlignment="Bottom">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF088;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF006;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FFFB5D44"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                    <AppBarButton Width="40" Height="40">
+                                        <AppBarButton.Icon>
+                                            <FontIcon Glyph="&#xF1F8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FF898989"/>
+                                        </AppBarButton.Icon>
+                                    </AppBarButton>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </xp:Shadow>
+            </GridViewItem>
+        </GridView>
     </Grid>
 </Page>
