@@ -262,6 +262,7 @@ namespace iSee
 
         private async void ShowRegisterDialogButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Result = SignInResult.SignInCancel;
             this.Hide();
             RegisterContentDialog registerDialog = new RegisterContentDialog();
             await registerDialog.ShowAsync(); //获取返回值

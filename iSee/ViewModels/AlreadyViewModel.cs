@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iSee
+namespace iSee.ViewModels
 {
-    class Movie
+    class AlreadyViewModel
     {
+
     }
 }

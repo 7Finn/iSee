@@ -3,6 +3,21 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -230,6 +245,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -1598,6 +1621,21 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -1868,6 +1906,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -3286,6 +3332,21 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -3542,6 +3603,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -4946,6 +5015,21 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -5221,6 +5305,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -6639,6 +6731,21 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -6895,6 +7002,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -8299,6 +8414,21 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -8574,6 +8704,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -9992,6 +10130,21 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "ImageLib.UWP/5.0.0": {
+        "dependencies": {
+          "Win2D.uwp": "[1.7.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.0.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -10248,6 +10401,14 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "SQLitePCL/3.8.7.2": {
@@ -11653,6 +11814,30 @@
     }
   },
   "libraries": {
+    "ImageLib.UWP/5.0.0": {
+      "sha512": "mEaza6HGwVKOL8K4aDkrFEiSdcMc1efBH4ALdwJzUUblX9uZkvqUyaCzlM5K5+oamxmUUSRyY7X5UBE3BO6G1A==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "ImageLib.UWP.nuspec",
+        "lib/uap10.0/ImageLib.Controls.dll",
+        "lib/uap10.0/ImageLib.Controls.pdb",
+        "lib/uap10.0/ImageLib.Controls.pri",
+        "lib/uap10.0/ImageLib.Controls/ImageLib.Controls.xr.xml",
+        "lib/uap10.0/ImageLib.Controls/ImageView.xbf",
+        "lib/uap10.0/ImageLib.Controls/Properties/ImageLib.Controls.rd.xml",
+        "lib/uap10.0/ImageLib.dll",
+        "lib/uap10.0/ImageLib.Gif.dll",
+        "lib/uap10.0/ImageLib.Gif.pdb",
+        "lib/uap10.0/ImageLib.Gif.pri",
+        "lib/uap10.0/ImageLib.Gif/Properties/ImageLib.Gif.rd.xml",
+        "lib/uap10.0/ImageLib.pdb",
+        "lib/uap10.0/ImageLib.pri",
+        "lib/uap10.0/ImageLib/Properties/ImageLib.rd.xml",
+        "package/services/metadata/core-properties/edffd10e7fbe44618c2592940eb0cb45.psmdcp"
+      ]
+    },
     "Microsoft.ApplicationInsights/1.0.0": {
       "sha512": "HZ47/thX57SOuIivSvIbsR6L9CCb/Yt3IyB2i4KHmmNlf3DO+lqFwWIKDdbDNWKX+qh0Rg20/JSMPK0dwUsYYw==",
       "type": "Package",
@@ -12354,6 +12539,29 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "Newtonsoft.Json/8.0.3": {
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "Newtonsoft.Json.nuspec",
+        "package/services/metadata/core-properties/199d932507f04f0285dade0302b87d22.psmdcp",
+        "tools/install.ps1"
       ]
     },
     "SQLitePCL/3.8.7.2": {
@@ -15169,10 +15377,12 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "ImageLib.UWP >= 5.0.0",
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
+      "Newtonsoft.Json >= 8.0.3",
       "SQLitePCL >= 3.8.7.2",
       "XPShadow >= 0.1.2"
     ],

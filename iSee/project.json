@@ -1,9 +1,11 @@
 ﻿{
   "dependencies": {
+    "ImageLib.UWP": "5.0.0",
     "Microsoft.ApplicationInsights": "1.0.0",
     "Microsoft.ApplicationInsights.PersistenceChannel": "1.0.0",
     "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Newtonsoft.Json": "8.0.3",
     "SQLitePCL": "3.8.7.2",
     "XPShadow": "0.1.2"
   },

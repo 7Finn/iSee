@@ -20,28 +20,11 @@ namespace iSee
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class AlreadySeen : Page
+    public sealed partial class MovieDetail : Page
     {
-        ViewModels.MovieViewModel ViewModel = App.AlreadySeenViewModel;
-
-        public AlreadySeen()
+        public MovieDetail()
         {
             this.InitializeComponent();
-        }
-
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            AppBarButton apt = sender as AppBarButton;
-            string title = apt.Tag.ToString();
-            for (int i = 0; i < ViewModel.AllItems.Count; i++)
-            {
-                if (ViewModel.AllItems[i].get_title() == title)
-                {
-                    ViewModel.AllItems[i].remove();
-                    ViewModel.RemoveMovie(title);
-                    return;
-                }
-            }
         }
     }
 }

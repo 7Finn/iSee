@@ -10,6 +10,7 @@ namespace iSee
 
         List<Scenario> scenarios = new List<Scenario>
         {
+            new Scenario() { Symbol = "Favorite", Title = "正在热播", ClassType = typeof(global::iSee.TheRecentHit) },
             new Scenario() { Symbol = "Favorite", Title = "想看的", ClassType = typeof(global::iSee.WantToSee) },
             new Scenario() { Symbol = "List", Title = "已看电影", ClassType = typeof(global::iSee.AlreadySeen) },
             new Scenario() { Symbol = "Like", Title = "私人影院", ClassType = typeof(global::iSee.MovieRecommend) },

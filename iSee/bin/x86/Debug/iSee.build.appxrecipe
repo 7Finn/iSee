@@ -21,6 +21,15 @@
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
       <PackagePath>entrypoint\iSee.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls.dll">
+      <PackagePath>ImageLib.Controls.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.dll">
+      <PackagePath>ImageLib.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Gif.dll">
+      <PackagePath>ImageLib.Gif.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
     </AppxPackagedFile>
@@ -74,6 +83,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\SQLitePCL\3.8.7.2\lib\netcore451\SQLitePCL.dll">
       <PackagePath>SQLitePCL.dll</PackagePath>
@@ -363,6 +375,9 @@
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\loading.gif">
+      <PackagePath>Assets\loading.gif</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Resources\FontAwesome.otf">
       <PackagePath>Resources\FontAwesome.otf</PackagePath>
     </AppxPackagedFile>
@@ -413,6 +428,18 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls\ImageLib.Controls.xr.xml">
+      <PackagePath>ImageLib.Controls\ImageLib.Controls.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls\Properties\ImageLib.Controls.rd.xml">
+      <PackagePath>ImageLib.Controls\Properties\ImageLib.Controls.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib\Properties\ImageLib.rd.xml">
+      <PackagePath>ImageLib\Properties\ImageLib.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Gif\Properties\ImageLib.Gif.rd.xml">
+      <PackagePath>ImageLib.Gif\Properties\ImageLib.Gif.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\XPShadow\0.1.2\lib\uap10.0\XPShadow\XPShadow.xr.xml">
       <PackagePath>XPShadow\XPShadow.xr.xml</PackagePath>

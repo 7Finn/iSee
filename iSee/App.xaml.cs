@@ -1,4 +1,10 @@
-﻿using SQLitePCL;
+﻿using ImageLib;
+using ImageLib.Cache.Memory;
+using ImageLib.Cache.Memory.CacheImpl;
+using ImageLib.Cache.Storage;
+using ImageLib.Cache.Storage.CacheImpl;
+using ImageLib.Gif;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +14,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -21,13 +29,20 @@ namespace iSee
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
-    sealed partial class iSee : Application
+    sealed partial class App : Application
     {
         /// <summary>
         /// 初始化单一实例应用程序对象。这是执行的创作代码的第一行，
         /// 已执行，逻辑上等同于 main() 或 WinMain()。
         /// </summary>
-        public iSee()
+        /// 
+        public static SQLiteConnection conn;
+        public static ViewModels.MovieViewModel RecentHitViewModel { get; set; }
+        public static ViewModels.MovieViewModel WantToSeeViewModel { get; set; }
+        public static ViewModels.MovieViewModel AlreadySeenViewModel { get; set; }
+
+
+        public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
@@ -36,9 +51,31 @@ namespace iSee
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
+            RecentHitViewModel = new ViewModels.MovieViewModel();
+            WantToSeeViewModel = new ViewModels.MovieViewModel();
+            AlreadySeenViewModel = new ViewModels.MovieViewModel();
+            InitImageLoader();
             LoadDatabase();
         }
-        public static SQLiteConnection conn;
+
+        private void InitImageLoader()
+        {
+            ImageLoader.Initialize(new ImageConfig.Builder()
+            {
+                CacheMode = ImageLib.Cache.CacheMode.MemoryAndStorageCache,
+                MemoryCacheImpl = new LRUCache<string, IRandomAccessStream>(),
+                StorageCacheImpl = new LimitedStorageCache(ApplicationData.Current.LocalCacheFolder,
+              "cache", new SHA1CacheGenerator(), 1024 * 1024 * 1024)
+            }.AddDecoder<GifDecoder>().Build(), false);
+
+            ImageLoader.Register("test", new ImageConfig.Builder()
+            {
+                CacheMode = ImageLib.Cache.CacheMode.MemoryAndStorageCache,
+                MemoryCacheImpl = new LRUMemoryCache(),
+                StorageCacheImpl = new LimitedStorageCache(ApplicationData.Current.LocalFolder,
+               "cache1", new SHA1CacheGenerator(), 1024 * 1024 * 1024)
+            }.AddDecoder<GifDecoder>().Build());
+        }
 
         private void LoadDatabase()
         {

@@ -94,15 +94,26 @@
     </Content>
     <None Include="ClassDiagram1.cd" />
     <None Include="project.json" />
+    <Content Include="Assets\loading.gif" />
     <Content Include="Resources\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Movie.cs" />
+    <Compile Include="MovieDetail.xaml.cs">
+      <DependentUpon>MovieDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MovieRecommend.xaml.cs">
       <DependentUpon>MovieRecommend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TheRecentHit.xaml.cs">
+      <DependentUpon>TheRecentHit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AlreadyViewModel.cs" />
+    <Compile Include="ViewModels\MovieViewModel.cs" />
+    <Compile Include="ViewModels\ReventHitMovieViewModel.cs" />
     <Compile Include="WanToSee.xaml.cs">
       <DependentUpon>WanToSee.xaml</DependentUpon>
     </Compile>
@@ -113,7 +124,6 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterContentDialog.xaml.cs">
       <DependentUpon>RegisterContentDialog.xaml</DependentUpon>
@@ -149,7 +159,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MovieDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MovieRecommend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TheRecentHit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

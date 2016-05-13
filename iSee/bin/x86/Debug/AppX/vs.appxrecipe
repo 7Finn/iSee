@@ -22,13 +22,25 @@
     <AppXManifest Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-12T16:25:46.913</Modified>
+      <Modified>2016-05-13T13:02:49.872</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
       <PackagePath>entrypoint\iSee.exe</PackagePath>
-      <Modified>2016-05-12T16:25:46.056</Modified>
+      <Modified>2016-05-13T13:02:25.142</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls.dll">
+      <PackagePath>ImageLib.Controls.dll</PackagePath>
+      <Modified>2016-05-13T12:20:19.674</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.dll">
+      <PackagePath>ImageLib.dll</PackagePath>
+      <Modified>2016-05-13T12:20:19.680</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Gif.dll">
+      <PackagePath>ImageLib.Gif.dll</PackagePath>
+      <Modified>2016-05-13T12:20:19.681</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -101,6 +113,10 @@
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Microsoft.Win32.Primitives\4.0.0\lib\dotnet\Microsoft.Win32.Primitives.dll">
       <PackagePath>Microsoft.Win32.Primitives.dll</PackagePath>
       <Modified>2016-02-24T15:42:05.711</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\Newtonsoft.Json\8.0.3\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2016-03-20T09:38:25.634</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\SQLitePCL\3.8.7.2\lib\netcore451\SQLitePCL.dll">
       <PackagePath>SQLitePCL.dll</PackagePath>
@@ -486,6 +502,10 @@
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-04-18T14:59:32.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Assets\loading.gif">
+      <PackagePath>Assets\loading.gif</PackagePath>
+      <Modified>2016-05-13T12:57:38.332</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\Resources\FontAwesome.otf">
       <PackagePath>Resources\FontAwesome.otf</PackagePath>
       <Modified>2016-05-10T08:41:40.131</Modified>
@@ -546,11 +566,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.xr.xml">
       <PackagePath>iSee.xr.xml</PackagePath>
-      <Modified>2016-05-12T16:25:45.845</Modified>
+      <Modified>2016-05-13T12:56:24.109</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-02-24T15:18:40.708</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls\ImageLib.Controls.xr.xml">
+      <PackagePath>ImageLib.Controls\ImageLib.Controls.xr.xml</PackagePath>
+      <Modified>2016-05-13T12:20:19.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls\Properties\ImageLib.Controls.rd.xml">
+      <PackagePath>ImageLib.Controls\Properties\ImageLib.Controls.rd.xml</PackagePath>
+      <Modified>2016-05-13T12:20:19.670</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib\Properties\ImageLib.rd.xml">
+      <PackagePath>ImageLib\Properties\ImageLib.rd.xml</PackagePath>
+      <Modified>2016-05-13T12:20:19.669</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Gif\Properties\ImageLib.Gif.rd.xml">
+      <PackagePath>ImageLib.Gif\Properties\ImageLib.Gif.rd.xml</PackagePath>
+      <Modified>2016-05-13T12:20:19.672</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\XPShadow\0.1.2\lib\uap10.0\XPShadow\XPShadow.xr.xml">
       <PackagePath>XPShadow\XPShadow.xr.xml</PackagePath>
@@ -562,11 +598,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-12T16:25:46.523</Modified>
+      <Modified>2016-05-13T13:02:49.269</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\iSee.exe">
       <PackagePath>iSee.exe</PackagePath>
-      <Modified>2016-05-12T16:25:46.912</Modified>
+      <Modified>2016-05-13T13:02:49.871</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
