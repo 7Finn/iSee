@@ -20,6 +20,7 @@
         <GridView
             ItemsSource="{x:Bind ViewModel.AllItems}" 
             IsItemClickEnabled="True" 
+            SelectionChanged="GridViewSelectionChanged"
             ItemContainerStyle="{StaticResource TheRecentHitGridViewItemStyle}" 
             Style="{StaticResource TheRecentHitGridViewStyle}">
             <GridView.ItemTemplate >

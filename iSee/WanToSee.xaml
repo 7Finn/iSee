@@ -28,7 +28,7 @@
                         <UserControl>
                             <xp:Shadow CornerRadius="2" Z_Depth="2">
                                 <StackPanel CornerRadius="2" Orientation="Horizontal" Background="White">
-                                    <Image Source="{x:Bind url}" Stretch="UniformToFill"/>
+                                    <Image Source="{x:Bind url}" Stretch="Uniform"/>
                                     <Grid Padding="10,10,10,5">
                                         <StackPanel VerticalAlignment="Top">
                                             <TextBlock Text="{x:Bind title}"></TextBlock>

@@ -114,7 +114,7 @@
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="Style" />
       <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="Margin" />
+      <RootEvent Name="SelectionChanged" />
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />

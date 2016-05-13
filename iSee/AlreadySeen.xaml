@@ -10,13 +10,13 @@
     mc:Ignorable="d" >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20" >
-        <GridView Style="{StaticResource GridViewStyle}" ItemsSource="{x:Bind ViewModel.AllItems}" IsItemClickEnabled="True" Margin="3,15,-3,-15" ItemContainerStyle="{StaticResource WantToSeeGridViewItemStyle}">
+        <GridView Style="{StaticResource AlreadySeenGridViewStyle}" ItemsSource="{x:Bind ViewModel.AllItems}" IsItemClickEnabled="True" ItemContainerStyle="{StaticResource AlreadySeenGridViewItemStyle}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Movie" >
                     <UserControl>
                         <xp:Shadow CornerRadius="2" Z_Depth="2">
                             <StackPanel Background="#FFF">
-                                <Image Source="{x:Bind url}" Stretch="UniformToFill" Height="280" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                                <Image Source="{x:Bind url}" Stretch="Uniform" Height="280" HorizontalAlignment="Center" VerticalAlignment="Top"  />
                                 <StackPanel Padding="10">
                                     <TextBlock Text="{x:Bind title}"/>
                                     <StackPanel Orientation="Horizontal">

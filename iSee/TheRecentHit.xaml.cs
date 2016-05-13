@@ -42,7 +42,11 @@ namespace iSee
 
         private void GridViewSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Frame.Navigate(typeof(global::iSee.MovieDetail));
+            GridView gridView = (GridView)sender;
+            Movie movie = (Movie)gridView.SelectedItem;
+            string movieTitle = movie.get_title();
+            Debug.WriteLine(movie.get_title());
+            Frame.Navigate(typeof(global::iSee.MovieDetail), movieTitle);
         }
 
         private void DisplayLoadingImage()
@@ -102,7 +106,19 @@ namespace iSee
 
             JsonTextReader json = new JsonTextReader(new StringReader(result));
 
-            string username="", title = "", tag = "", act = "", year = "", url;
+
+            //获取用户名
+            string username;
+            if (SignInContentDialog.current_user != null)
+            {
+                username = SignInContentDialog.current_user.name;
+            }
+            else
+            {
+                username = "guest";
+            }
+
+            string title = "", tag = "", act = "", year = "", url;
 
             while (json.Read())
             {

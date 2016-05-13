@@ -251,12 +251,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="AlreadySeenGridViewItemStyle" TargetType="GridViewItem">
-        <!-- 
-        <Setter Property="BorderThickness" Value="0.5" />
-        <Setter Property="BorderBrush" Value="#C7C7C7" />
-        -->
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -299,9 +295,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    <Style x:Key="GridViewStyle" TargetType="GridView">
-        <Setter Property="Padding" Value="0,0,0,10"/>
+
+    <Style x:Key="AlreadySeenGridViewStyle" TargetType="GridView">
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="TabNavigation" Value="Once"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
@@ -345,8 +340,7 @@
     </Style>
     
     <Style x:Key="WantToSeeGridViewStyle" TargetType="GridView">
-        <Setter Property="Height" Value="240" />
-        <Setter Property="Padding" Value="0,0,0,10"/>
+        
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="TabNavigation" Value="Once"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
@@ -412,6 +406,8 @@
     </Style>
 
     <Style x:Key="WantToSeeGridViewItemStyle" TargetType="GridViewItem">
+        <Setter Property="Height" Value="240" />
+        <Setter Property="Padding" Value="0,0,0,10"/>
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
         <Setter Property="Background" Value="#FFF"/>

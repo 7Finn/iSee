@@ -233,6 +233,12 @@ namespace iSee
                 }
             }
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string title = Search.Text;
+            ScenarioFrame.Navigate(typeof(iSee.MovieDetail), title);
+        }
     }
 
     public enum NotifyType

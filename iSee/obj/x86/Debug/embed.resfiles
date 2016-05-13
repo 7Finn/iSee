@@ -1,6 +1,10 @@
+AlreadySeen.xbf
 App.xbf
-BlankPage.xbf
-BlankPage1.xbf
 MainPage.xbf
+MovieDetail.xbf
+MovieRecommend.xbf
+RegisterContentDialog.xbf
 SignInContentDialog.xbf
 Styles\Styles.xbf
+TheRecentHit.xbf
+WanToSee.xbf
