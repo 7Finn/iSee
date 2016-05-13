@@ -26,6 +26,7 @@
                             <TextBlock x:Name="current_user_name" Style="{StaticResource PaneUserName}" Margin="0,10,0,0">未登录</TextBlock>
                         </StackPanel>
                     </Button>
+                    <Button x:Name="signin_button" Content="登陆" HorizontalAlignment="Stretch" Click="ShowSignInDialogButton_Click" VerticalAlignment="Stretch" Margin="0,0,118,0"/>
                     <TextBlock Style="{StaticResource PaneHeadTitle}" Margin="10,0,0,0">我的电影</TextBlock>
                     <ListView x:Name="ScenarioControl" SelectionChanged="ScenarioControl_SelectionChanged"
                 SelectionMode="Single" Background="Transparent" BorderThickness="0"

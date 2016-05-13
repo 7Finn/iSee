@@ -38,13 +38,22 @@ namespace iSee
             this.InitializeComponent();
         }
 
-        public bool ExistMovie(string title)
+        public bool ExistMovie(string title, string row)
         {
             var db = App.conn;
-            string sql = "SELECT * FROM movie WHERE Title = ?";
+            string sql = "SELECT * FROM movie WHERE Title = ? AND User_name = ? AND Row = ?";
             using (var statement = db.Prepare(sql))
             {
                 statement.Bind(1, title);
+                statement.Bind(3, row);
+                if (SignInContentDialog.current_user != null)
+                {
+                    statement.Bind(2, SignInContentDialog.current_user.name);
+                }
+                else
+                {
+                    statement.Bind(2, "guest");
+                }
                 if (SQLiteResult.ROW == statement.Step())
                 {
                     return true;
@@ -68,9 +77,9 @@ namespace iSee
             }
 
             string getMovie = "http://op.juhe.cn/onebox/movie/video?key=ea6c6be7c1fc529b040b019f1149c10a&q=" + Search.Text;
-            if (ExistMovie(Search.Text))
+            if (ExistMovie(Search.Text, "1"))
             {
-                var screen = new MessageDialog("Movie exist!\n").ShowAsync();
+                //var screen = new MessageDialog("Movie exist!\n").ShowAsync();
                 return;
             }
 
@@ -118,7 +127,16 @@ namespace iSee
                 var screen = new MessageDialog("Sorry, Movie doesn't exist!\n").ShowAsync();
                 return;
             }
-            Movie movie = new Movie(title, tag, act, year, url);
+            Movie movie;
+            if (SignInContentDialog.current_user == null)
+            {
+                movie = new Movie("guest", title, tag, act, year, url);
+            }
+            else
+            {
+                movie = new Movie(SignInContentDialog.current_user.name, title, tag, act, year, url);
+            }
+
             movie.save();
             ViewModel.AddMovie(movie);
         }
@@ -132,9 +150,23 @@ namespace iSee
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             AppBarButton apt = sender as AppBarButton;
-            App.AlreadySeenViewModel.AddMovie(ViewModel.SearchMovie(apt.Tag.ToString()));
-            ViewModel.UpdateMovie(apt.Tag.ToString());
-            ViewModel.RemoveMovie(apt.Tag.ToString());
+            string title = apt.Tag.ToString();
+            if (!ExistMovie(apt.Tag.ToString(), "2"))
+            {
+                App.AlreadySeenViewModel.AddMovie(ViewModel.SearchMovie(apt.Tag.ToString()));
+                ViewModel.UpdateMovie(apt.Tag.ToString());
+            }
+            else
+            {
+                for (int i = 0; i < ViewModel.AllItems.Count; i++)
+                {
+                    if (ViewModel.AllItems[i].get_title() == title)
+                    {
+                        ViewModel.AllItems[i].remove();
+                    }
+                }
+            }
+            ViewModel.RemoveMovie(title);
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -151,6 +183,7 @@ namespace iSee
                 }
             }
         }
+
     }
 
     public class CoverWidthConvert : IValueConverter

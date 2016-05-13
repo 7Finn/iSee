@@ -33,7 +33,11 @@ namespace iSee
         public TheRecentHit()
         {
             this.InitializeComponent();
-            GetHit();
+            if (ViewModel.GetSize() == 0)
+            {
+                ShowLoadingImage();
+                GetHit();
+            }
         }
 
         private void GridViewSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,6 +48,11 @@ namespace iSee
         private void DisplayLoadingImage()
         {
             LoadingImage.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowLoadingImage()
+        {
+            LoadingImage.Visibility = Visibility.Visible;
         }
 
         private async void GetHit()
@@ -93,7 +102,7 @@ namespace iSee
 
             JsonTextReader json = new JsonTextReader(new StringReader(result));
 
-            string title = "", tag = "", act = "", year = "", url;
+            string username="", title = "", tag = "", act = "", year = "", url;
 
             while (json.Read())
             {
@@ -108,7 +117,7 @@ namespace iSee
                     {
                         for (int i = 0; i < 5; ++i) json.Read();
                         url = json.Value.ToString();
-                        Movie movie = new Movie(title, tag, act, year, url);
+                        Movie movie = new Movie(username, title, tag, act, year, url);
                         ViewModel.AddMovie(movie);
                     }
                 }

@@ -133,8 +133,11 @@ namespace iSee
                     // Sign in was successful.
                     is_signin = true;
                     current_user_name.Text = SignInContentDialog.current_user.name;
-                    //signin_button.Content = "注销";
 
+                    signin_button.Content = "注销";
+
+                    // 更新用户的数据
+                    ReloadAllMovies(is_signin);
 
                 }
                 else if (signInDialog.Result == SignInResult.SignInFail)
@@ -148,12 +151,51 @@ namespace iSee
             }
             else
             {
-                this.SelectPictureButton_Click(sender, e);
-                //is_signin = false;
+                is_signin = false;
+                ReloadAllMovies(is_signin);
                 //head_image.ImageSource = "Assets/UserImage.jpg";
-                //current_user_name.Text = "未登录";
-                //signin_button.Content = "登录";
+                current_user_name.Text = "未登录";
+                SignInContentDialog.current_user = null;
+                signin_button.Content = "登录";
             }
+        }
+
+        private void Head_Picture_Click(object sender, RoutedEventArgs e)
+        {
+            this.SelectPictureButton_Click(sender, e);
+        }
+
+        public void ReloadAllMovies(bool is_signin)
+        {
+            App.AlreadySeenViewModel.RemoveAllMovie();
+            App.WantToSeeViewModel.RemoveAllMovie();
+            string movie_sql;
+            movie_sql = "SELECT * FROM movie WHERE Row = ? AND User_name = ?";
+            using (var statement = App.conn.Prepare(movie_sql))
+            {
+                statement.Bind(1, 1);
+                if (is_signin)
+                    statement.Bind(2, SignInContentDialog.current_user.name);
+                else
+                    statement.Bind(2, "guest");
+                while (SQLiteResult.ROW == statement.Step())
+                {
+                    App.WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                }
+            }
+            using (var statement = App.conn.Prepare(movie_sql))
+            {
+                statement.Bind(1, 2);
+                if (is_signin)
+                    statement.Bind(2, SignInContentDialog.current_user.name);
+                else
+                    statement.Bind(2, "guest");
+                while (SQLiteResult.ROW == statement.Step())
+                {
+                    App.AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                }
+            }
+
         }
 
         private async void ShowRegisterDialogButton_Click(object sender, RoutedEventArgs e)

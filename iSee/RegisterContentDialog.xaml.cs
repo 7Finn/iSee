@@ -55,11 +55,11 @@ namespace iSee
                 {
                     this.Result = RegistResult.RegistOK;
                     insert_user(userNameTextBox.Text, passwordTextBox.Password);
-                 }
-                 else
-                 {
+                }
+                else
+                {
                     args.Cancel = true;
-                 }
+                }
             }
 
             // If you're performing async operations in the button click handler,
@@ -82,9 +82,8 @@ namespace iSee
 
         public bool signup_is_vaild(string name)
         {
-            var db = new SQLiteConnection("isee_user.db");
             //User select_user = null;
-            using (var statement = db.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
+            using (var statement = App.conn.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
             {
                 statement.Bind(1, name);
                 SQLiteResult result = statement.Step();
@@ -100,10 +99,9 @@ namespace iSee
 
         public void insert_user(string name, string password)
         {
-            var db = new SQLiteConnection("isee_user.db");
             try
             {
-                using (var add_user = db.Prepare("INSERT INTO User(Name, Password) VALUES(?,?)"))
+                using (var add_user = App.conn.Prepare("INSERT INTO User(Name, Password) VALUES(?,?)"))
                 {
                     add_user.Bind(1, name);
                     add_user.Bind(2, password);

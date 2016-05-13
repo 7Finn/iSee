@@ -14,7 +14,7 @@ namespace iSee
 
         private User selectedUser = default(User);
         public User SelectedUser { get { return selectedUser; } set { this.selectedUser = value; } }
-        
+
 
         public UserViewModel()
         {

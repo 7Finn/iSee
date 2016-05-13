@@ -34,13 +34,13 @@ namespace iSee
         /// <param name="sender"></param>
         /// <param name="args"></param>
         /// 
-        
+
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
             // Ensure the user name and password fields aren't empty. If a required field
             // is empty, set args.Cancel = true to keep the dialog open.
-            
+
             if (string.IsNullOrEmpty(userNameTextBox.Text))
             {
                 args.Cancel = true;
@@ -50,14 +50,16 @@ namespace iSee
             {
                 args.Cancel = true;
                 errorTextBlock.Text = "Password is required.";
-            } else
+            }
+            else
             {
                 if (signin_is_vaild(userNameTextBox.Text, passwordTextBox.Password))
                 {
                     //ViewModel.AddUser(userNameTextBox.Text, passwordTextBox.Password);
                     this.Result = SignInResult.SignInOK;
                     //insert_user(userNameTextBox.Text, passwordTextBox.Password);
-                } else
+                }
+                else
                 {
                     args.Cancel = true;
                 }
@@ -80,20 +82,18 @@ namespace iSee
             */
             deferral.Complete();
         }
-    
+
 
         public bool signin_is_vaild(string name, string password)
         {
-            //List<User> listUser = new List<User>();
-            var db = new SQLiteConnection("isee_user.db");
             User select_user = null;
-            using (var statement = db.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
+            using (var statement = App.conn.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
             {
                 statement.Bind(1, name);
                 SQLiteResult result = statement.Step();
-                
+
                 while (SQLiteResult.ROW == result)
-                {             
+                {
                     if (statement[2].ToString() != password)
                     {
                         errorTextBlock.Text = "用户名或密码错误";
@@ -106,7 +106,7 @@ namespace iSee
                         return true;
                     }
                 }
-                
+
                 errorTextBlock.Text = "用户名不存在";
                 return false;
             }
@@ -138,9 +138,7 @@ namespace iSee
         }*/
         public bool signup_is_vaild(string name)
         {
-            var db = new SQLiteConnection("isee_user.db");
-            //User select_user = null;
-            using (var statement = db.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
+            using (var statement = App.conn.Prepare("SELECT Id, Name, Password FROM User WHERE Name = ?"))
             {
                 statement.Bind(1, name);
                 SQLiteResult result = statement.Step();
@@ -156,10 +154,9 @@ namespace iSee
 
         public void insert_user(string name, string password)
         {
-            var db = new SQLiteConnection("isee_user.db");
             try
             {
-                using (var add_user = db.Prepare("INSERT INTO User(Name, Password) VALUES(?,?)"))
+                using (var add_user = App.conn.Prepare("INSERT INTO User(Name, Password) VALUES(?,?)"))
                 {
                     add_user.Bind(1, name);
                     add_user.Bind(2, password);

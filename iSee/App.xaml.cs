@@ -36,7 +36,7 @@ namespace iSee
         /// 已执行，逻辑上等同于 main() 或 WinMain()。
         /// </summary>
         /// 
-        public static SQLiteConnection conn;
+        public static SQLiteConnection conn = new SQLiteConnection("iSee.db");
         public static ViewModels.MovieViewModel RecentHitViewModel { get; set; }
         public static ViewModels.MovieViewModel WantToSeeViewModel { get; set; }
         public static ViewModels.MovieViewModel AlreadySeenViewModel { get; set; }
@@ -54,6 +54,7 @@ namespace iSee
             RecentHitViewModel = new ViewModels.MovieViewModel();
             WantToSeeViewModel = new ViewModels.MovieViewModel();
             AlreadySeenViewModel = new ViewModels.MovieViewModel();
+
             InitImageLoader();
             LoadDatabase();
         }
@@ -79,15 +80,46 @@ namespace iSee
 
         private void LoadDatabase()
         {
-            conn = new SQLiteConnection("isee_user.db");
-            string sql = @"CREATE TABLE IF NOT EXISTS
+            string movie_sql = @"CREATE TABLE IF NOT EXISTS
+                            Movie ( User_name VARCHAR(140),
+                            Title VARCHAR( 140 ),
+                            Tag VARCHAR( 140 ),
+                            Act VARCHAR( 140 ),
+                            Year VARCHAR(140),
+                            URL VARCHAR(140),
+                            Row int);";
+            using (var statement = conn.Prepare(movie_sql))
+            {
+                statement.Step();
+            }
+
+            string user_sql = @"CREATE TABLE IF NOT EXISTS
                             User(Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                 Name VARCHAR(140),
                                 Password VARCHAR(140)
                             );";
-            using (var statement = conn.Prepare(sql))
+            using (var statement = conn.Prepare(user_sql))
             {
                 statement.Step();
+            }
+            movie_sql = "SELECT * FROM movie WHERE Row = ? AND User_name = ?";
+            using (var statement = conn.Prepare(movie_sql))
+            {
+                statement.Bind(1, 1);
+                statement.Bind(2, "guest");
+                while (SQLiteResult.ROW == statement.Step())
+                {
+                    WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                }
+            }
+            using (var statement = conn.Prepare(movie_sql))
+            {
+                statement.Bind(1, 2);
+                statement.Bind(2, "guest");
+                while (SQLiteResult.ROW == statement.Step())
+                {
+                    AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                }
             }
         }
         /// <summary>

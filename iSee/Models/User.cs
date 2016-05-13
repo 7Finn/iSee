@@ -29,7 +29,7 @@ namespace iSee
             this.password = password;
         }
 
-        public User(string id , string name, string password)
+        public User(string id, string name, string password)
         {
             this.id = id;
             this.name = name;
