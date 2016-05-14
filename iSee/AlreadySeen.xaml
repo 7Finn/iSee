@@ -10,7 +10,11 @@
     mc:Ignorable="d" >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20" >
-        <GridView Style="{StaticResource AlreadySeenGridViewStyle}" ItemsSource="{x:Bind ViewModel.AllItems}" IsItemClickEnabled="True" ItemContainerStyle="{StaticResource AlreadySeenGridViewItemStyle}">
+        <GridView 
+            ItemsSource="{x:Bind ViewModel.AllItems}" 
+            IsItemClickEnabled="True"
+            SelectionChanged="GridViewSelectionChanged"
+            ItemContainerStyle="{StaticResource AlreadySeenGridViewItemStyle}">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="md:Movie" >
                     <UserControl>

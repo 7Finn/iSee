@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iSee.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -51,6 +52,17 @@ namespace iSee
             AppBarButton apt = sender as AppBarButton;
             apt.Foreground = new SolidColorBrush(Color.FromArgb(255, 204, 51, 0));
         }
-        
+
+        private void GridViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridView gridView = (GridView)sender;
+            Movie movie = (Movie)gridView.SelectedItem;
+            if (movie == null) return;
+            string movieTitle = movie.get_title();
+            Debug.WriteLine(movie.get_title());
+
+            Frame.Navigate(typeof(global::iSee.MovieDetail), movieTitle);
+        }
+
     }
 }

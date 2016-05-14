@@ -14,46 +14,43 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
-        <StackPanel>
-            <GridView 
-            Style="{StaticResource WantToSeeGridViewStyle}" 
+        <GridView 
             ItemsSource="{x:Bind ViewModel.AllItems}" 
-            IsItemClickEnabled="True" 
-            ItemClick="GridView_ItemClick" 
+            SelectionChanged="GridViewSelectionChanged"
+            IsItemClickEnabled="True"
             ItemContainerStyle="{StaticResource WantToSeeGridViewItemStyle}">
-                <GridView.ItemTemplate >
-                    <DataTemplate x:DataType="md:Movie">
-                        <UserControl>
-                            <xp:Shadow CornerRadius="2" Z_Depth="2">
-                                <StackPanel CornerRadius="2" Orientation="Horizontal" Background="White">
-                                    <Image Source="{x:Bind url}" Stretch="Uniform"/>
-                                    <Grid Padding="10,10,10,5">
-                                        <StackPanel VerticalAlignment="Top">
-                                            <TextBlock TextWrapping="Wrap" Text="{x:Bind title}" Width="120"></TextBlock>
-                                            <TextBlock Text="{x:Bind year}" FontSize="9.333" Foreground="#FF686868"></TextBlock>
+            <GridView.ItemTemplate >
+                <DataTemplate x:DataType="md:Movie">
+                    <UserControl>
+                        <xp:Shadow CornerRadius="2" Z_Depth="2">
+                            <StackPanel CornerRadius="2" Orientation="Horizontal" Background="White">
+                                <Image Source="{x:Bind url}" Stretch="Uniform"/>
+                                <Grid Padding="10,10,10,5">
+                                    <StackPanel VerticalAlignment="Top">
+                                        <TextBlock TextWrapping="Wrap" Text="{x:Bind title}" ></TextBlock>
+                                        <TextBlock Text="{x:Bind year}" FontSize="9.333" Foreground="#FF686868"></TextBlock>
+                                    </StackPanel>
+                                    <Grid VerticalAlignment="Bottom">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
+                                            <AppBarButton Width="40" Height="40" Style="{StaticResource FinishAppBarButtonStyle}"  Tag="{x:Bind title}" Click="AppBarButton_Click">
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xf046;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
+                                            <AppBarButton Width="40" Height="40" Style="{StaticResource DeleteAppBarButtonStyle}" Tag="{x:Bind title}" Click="DeleteButton_Click">
+                                                <AppBarButton.Icon>
+                                                    <FontIcon Glyph="&#xF1F8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
+                                                </AppBarButton.Icon>
+                                            </AppBarButton>
                                         </StackPanel>
-                                        <Grid VerticalAlignment="Bottom">
-                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
-                                                <AppBarButton Width="40" Height="40" Style="{StaticResource FinishAppBarButtonStyle}"  Tag="{x:Bind title}" Click="AppBarButton_Click">
-                                                    <AppBarButton.Icon>
-                                                        <FontIcon Glyph="&#xf046;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
-                                                    </AppBarButton.Icon>
-                                                </AppBarButton>
-                                                <AppBarButton Width="40" Height="40" Style="{StaticResource DeleteAppBarButtonStyle}" Tag="{x:Bind title}" Click="DeleteButton_Click">
-                                                    <AppBarButton.Icon>
-                                                        <FontIcon Glyph="&#xF1F8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
-                                                    </AppBarButton.Icon>
-                                                </AppBarButton>
-                                            </StackPanel>
-                                        </Grid>
                                     </Grid>
+                                </Grid>
 
-                                </StackPanel>
-                            </xp:Shadow>
-                        </UserControl>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-        </StackPanel>
+                            </StackPanel>
+                        </xp:Shadow>
+                    </UserControl>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
 </Page>

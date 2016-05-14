@@ -16,6 +16,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -44,6 +45,7 @@ namespace iSee
 
         public App()
         {
+
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
@@ -109,7 +111,7 @@ namespace iSee
                 statement.Bind(2, "guest");
                 while (SQLiteResult.ROW == statement.Step())
                 {
-                    WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                    WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5], 1);
                 }
             }
             using (var statement = conn.Prepare(movie_sql))
@@ -118,7 +120,7 @@ namespace iSee
                 statement.Bind(2, "guest");
                 while (SQLiteResult.ROW == statement.Step())
                 {
-                    AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                    AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5], 2);
                 }
             }
         }

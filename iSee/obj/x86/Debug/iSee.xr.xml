@@ -70,7 +70,6 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="TextWrapping" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Style" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="FontWeight" />
@@ -83,12 +82,13 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Tag" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Label" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Icon" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="Icon" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Padding" />
       <RootProperty Name="HorizontalAlignment" />
       <RootEvent Name="Click" />
@@ -132,7 +132,6 @@
       <RootProperty Name="Style" />
       <RootProperty Name="ItemTemplate" />
       <RootEvent Name="SelectionChanged" />
-      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -146,11 +145,30 @@
     <RootType FullName="iSee.AlreadySeen" />
     <RootType FullName="iSee.ScenarioBindingConverter" />
     <RootType FullName="iSee.ScenarioBindingConverterSymbol" />
+    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
+      <RootMethod Name="GetVisualStateGroups" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
+      <RootProperty Name="States" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualState">
+      <RootProperty Name="Setters" />
+      <RootProperty Name="StateTriggers" />
+      <RootProperty Name="Storyboard" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
+      <RootProperty Name="MinWindowWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Setter">
+      <RootProperty Name="Target" />
+      <RootProperty Name="Value" />
+      <RootProperty Name="Property" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="IsPaneOpen" />
-      <RootProperty Name="DisplayMode" />
       <RootProperty Name="OpenPaneLength" />
       <RootProperty Name="PaneBackground" />
+      <RootProperty Name="DisplayMode" />
       <RootProperty Name="Pane" />
       <RootProperty Name="Content" />
     </RootType>
@@ -182,10 +200,8 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
       <RootProperty Name="Symbol" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Converter" />
@@ -365,26 +381,11 @@
       <RootMethod Name="GetDiscretionaryLigatures" />
       <RootMethod Name="SetDiscretionaryLigatures" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Setter">
-      <RootProperty Name="Property" />
-      <RootProperty Name="Value" />
-      <RootProperty Name="Target" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ControlTemplate">
       <RootProperty Name="TargetType" />
       <RootProperty Name="Template" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
-      <RootMethod Name="GetVisualStateGroups" />
-    </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.TemplateBindingExtension" />
-    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
-      <RootProperty Name="States" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.VisualState">
-      <RootProperty Name="Setters" />
-      <RootProperty Name="Storyboard" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
       <RootProperty Name="Children" />
       <RootMethod Name="GetTargetProperty" />

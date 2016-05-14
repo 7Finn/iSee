@@ -45,7 +45,22 @@ namespace iSee
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             title = (string)e.Parameter;
+            ShowAppBarButton();
             GetDetail();
+        }
+
+        public void ShowAppBarButton()
+        {
+            if (ExistMovie(title, 1+"") || ExistMovie(title, 2+""))
+            {
+                AddAlreadySeenAppBarButton.Visibility = Visibility.Collapsed;
+                AddWantToSeeAppBarButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AddAlreadySeenAppBarButton.Visibility = Visibility.Visible;
+                AddWantToSeeAppBarButton.Visibility = Visibility.Visible;
+            }
         }
 
         private async void GetDetail()
@@ -181,7 +196,7 @@ namespace iSee
             //如果在WantToSee已存在
             if (ExistMovie(movie.get_title(), 1 + ""))
             {
-
+                var i = new MessageDialog("该电影已记录").ShowAsync();
             }
             else
             {
@@ -190,7 +205,7 @@ namespace iSee
                 WantToSeeViewModel.AddMovie(movie);
             }
             //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
-           // Frame.Navigate(typeof(iSee.WantToSee));
+            Frame.Navigate(typeof(iSee.TheRecentHit));
         }
 
         private void AddAlreadySeenAppBarButton_Click(object sender, RoutedEventArgs e)
@@ -198,12 +213,13 @@ namespace iSee
             if (movie == null) return;
             if (ExistMovie(movie.get_title(), 2 + "")) //如果AlreadySeen已存在
             {
-
+                var i = new MessageDialog("该电影已记录").ShowAsync();
             }
             else if (ExistMovie(movie.get_title(), 1 + ""))  //如果在WantToSee已存在
             {
                 WantToSeeViewModel.RemoveMovie(movie.get_title());
                 WantToSeeViewModel.UpdateMovie(movie.get_title());
+                movie.row = 2;
                 AlreadySeenViewModel.AddMovie(movie);
             }
             else
@@ -212,10 +228,11 @@ namespace iSee
                 movie.save();
                 movie.update();
                 AlreadySeenViewModel.UpdateMovie(movie.get_title());
+                movie.row = 2;
                 AlreadySeenViewModel.AddMovie(movie);
                 //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
             }
-            //Frame.Navigate(typeof(iSee.AlreadySeen));
+            Frame.Navigate(typeof(iSee.TheRecentHit));
         }
     }
 }

@@ -62,13 +62,6 @@ namespace iSee
             return false;
         }
 
-
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            ViewModel.SelectedItem = (Movie)(e.ClickedItem);
-
-        }
-
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             AppBarButton apt = sender as AppBarButton;
@@ -91,6 +84,18 @@ namespace iSee
             ViewModel.RemoveMovie(title);
         }
 
+        private void GridViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GridView gridView = (GridView)sender;
+            Movie movie = (Movie)gridView.SelectedItem;
+            if (movie == null) return;
+            string movieTitle = movie.get_title();
+            Debug.WriteLine(movie.get_title());
+
+            Frame.Navigate(typeof(global::iSee.MovieDetail), movieTitle);
+        }
+
+
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             AppBarButton apt = sender as AppBarButton;
@@ -105,7 +110,6 @@ namespace iSee
                 }
             }
         }
-
     }
 
     public class CoverWidthConvert : IValueConverter

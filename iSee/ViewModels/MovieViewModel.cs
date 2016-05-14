@@ -22,15 +22,20 @@ namespace iSee.ViewModels
             this.allItems = new ObservableCollection<Movie>();
         }
 
-        public void AddMovie(string user_name, string title, string tag, string act, string year, string url)
+        public void AddMovie(string user_name, string title, string tag, string act, string year, string url, int row)
         {
-            this.allItems.Add(new Movie(user_name, title, tag, act, year, url));
+            this.allItems.Add(new Movie(user_name, title, tag, act, year, url, row));
             //this.allItems[this.allItems.Count - 1].save();
         }
 
         public void AddMovie(Movie movie)
         {
             this.allItems.Add(movie);
+        }
+
+        public Movie GetLastMovie()
+        {
+            return allItems[allItems.Count - 1];
         }
 
         public void RemoveAllMovie()

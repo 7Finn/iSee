@@ -37,12 +37,12 @@ namespace iSee
             if (string.IsNullOrEmpty(userNameTextBox.Text))
             {
                 args.Cancel = true;
-                errorTextBlock.Text = "User name is required.";
+                errorTextBlock.Text = "请输入用户名";
             }
             else if (string.IsNullOrEmpty(passwordTextBox.Password) || string.IsNullOrEmpty(repasswordTextBox.Password))
             {
                 args.Cancel = true;
-                errorTextBlock.Text = "Password is required.";
+                errorTextBlock.Text = "请输入密码";
             }
             else if (passwordTextBox.Password != repasswordTextBox.Password)
             {
@@ -110,7 +110,7 @@ namespace iSee
             }
             catch
             {
-                var i = new MessageDialog("sign up failed").ShowAsync();
+                var i = new MessageDialog("注册失败").ShowAsync();
             }
         }
 

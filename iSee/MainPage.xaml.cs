@@ -12,6 +12,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -40,24 +41,18 @@ namespace iSee
             Current = this;
             InitialzeTitleBar();
         }
-        
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Populate the scenario list from the SampleConfiguration.cs file
             ScenarioControl.ItemsSource = scenarios;
-            if (Window.Current.Bounds.Width < 640)
-            {
-                ScenarioControl.SelectedIndex = -1;
-            }
-            else
-            {
-                ScenarioControl.SelectedIndex = 0;
-            }
+            ScenarioControl.SelectedIndex = 0;
         }
 
         private void ScenarioControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Debug.WriteLine("CHange");
             // Clear the status block when navigating scenarios.
             NotifyUser(String.Empty, NotifyType.StatusMessage);
 
@@ -68,7 +63,7 @@ namespace iSee
                 ScenarioFrame.Navigate(s.ClassType);
                 if (Window.Current.Bounds.Width < 640)
                 {
-                    Splitter.IsPaneOpen = false;
+                    //Splitter.IsPaneOpen = false;
                 }
             }
         }
@@ -195,7 +190,7 @@ namespace iSee
                     statement.Bind(2, "guest");
                 while (SQLiteResult.ROW == statement.Step())
                 {
-                    App.WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                    App.WantToSeeViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5], 1);
                 }
             }
             using (var statement = App.conn.Prepare(movie_sql))
@@ -207,7 +202,7 @@ namespace iSee
                     statement.Bind(2, "guest");
                 while (SQLiteResult.ROW == statement.Step())
                 {
-                    App.AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5]);
+                    App.AlreadySeenViewModel.AddMovie((string)statement[0], (string)statement[1], (string)statement[2], (string)statement[3], (string)statement[4], (string)statement[5], 2);
                 }
             }
 
@@ -257,7 +252,6 @@ namespace iSee
         }
 
     }
-
     public enum NotifyType
     {
         StatusMessage,

@@ -54,6 +54,17 @@ namespace iSee.Models
             this.row = 1;
         }
 
+        public Movie(string user_name, string title, string tag, string act, string year, string url, int row)
+        {
+            this.user_name = user_name;
+            this.title = title;
+            this.tag = tag;
+            this.act = act;
+            this.year = year;
+            this.url = url;
+            this.row = row;
+        }
+
         public void save()
         {
             string sql = @"INSERT INTO movie VALUES (?, ?, ?, ?, ?, ?, ?)";

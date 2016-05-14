@@ -8,8 +8,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,7 +38,7 @@ namespace iSee
             this.InitializeComponent();
             if (ViewModel.GetSize() == 0)
             {
-                ShowLoadingImage();
+                DisplayLoadingImage();
                 GetHit();
             }
         }
@@ -44,18 +47,19 @@ namespace iSee
         {
             GridView gridView = (GridView)sender;
             Movie movie = (Movie)gridView.SelectedItem;
+            if (movie == null) return;
             string movieTitle = movie.get_title();
             Debug.WriteLine(movie.get_title());
 
             Frame.Navigate(typeof(global::iSee.MovieDetail), movieTitle);
         }
 
-        private void DisplayLoadingImage()
+        private void HideLoadingImage()
         {
             LoadingImage.Visibility = Visibility.Collapsed;
         }
 
-        private void ShowLoadingImage()
+        private void DisplayLoadingImage()
         {
             LoadingImage.Visibility = Visibility.Visible;
         }
@@ -140,7 +144,39 @@ namespace iSee
                 }
             }
 
-            DisplayLoadingImage();
+            HideLoadingImage();
+            UpdateTile();
+        }
+
+        private async void UpdateTile()
+        {
+
+            //CreateTileUpdaterForApplication
+            StorageFile xmlFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Tile.xml"));
+            XmlDocument doc = await XmlDocument.LoadFromFileAsync(xmlFile);
+
+            //Get the latest todoitem
+            Movie lastMovie = ViewModel.AllItems[0];
+
+            //Get the text Node
+            XmlNodeList textNodeList = doc.GetElementsByTagName("text");
+            foreach (var node in textNodeList)
+            {
+                if (node.InnerText == "Title") node.InnerText = lastMovie.title;
+                if (node.InnerText == "Details") node.InnerText = lastMovie.year;
+            }
+
+            //Get the image Node
+            XmlNodeList imageNodeList = doc.GetElementsByTagName("image");
+            foreach (var node in imageNodeList)
+            {
+                node.Attributes[0].NodeValue = lastMovie.url;
+            }
+
+            //Update the Tile
+            TileNotification notifi = new TileNotification(doc);
+            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
+            updater.Update(notifi);
         }
     }
 }

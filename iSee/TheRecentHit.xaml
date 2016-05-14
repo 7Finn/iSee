@@ -15,7 +15,7 @@
         <controls:ImageView
             x:Name="LoadingImage"
             ImageLoaderKey="test"
-            UriSource="ms-appx:///Assets/loading.gif"
+            UriSource="ms-appx:///Assets/loading2.gif"
             Stretch="None" Visibility="Collapsed"/>
         <GridView
             ItemsSource="{x:Bind ViewModel.AllItems}" 
