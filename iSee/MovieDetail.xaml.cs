@@ -51,15 +51,25 @@ namespace iSee
 
         public void ShowAppBarButton()
         {
-            if (ExistMovie(title, 1+"") || ExistMovie(title, 2+""))
+            if (ExistMovie(title, 1 + ""))
             {
                 AddAlreadySeenAppBarButton.Visibility = Visibility.Collapsed;
                 AddWantToSeeAppBarButton.Visibility = Visibility.Collapsed;
+                Tips.Text = "(已添加至想看的电影中)";
+                Tips.Visibility = Visibility.Visible;
+            }
+            else if (ExistMovie(title, 2+""))
+            {
+                AddAlreadySeenAppBarButton.Visibility = Visibility.Collapsed;
+                AddWantToSeeAppBarButton.Visibility = Visibility.Collapsed;
+                Tips.Text = "(已看电影)";
+                Tips.Visibility = Visibility.Visible;
             }
             else
             {
                 AddAlreadySeenAppBarButton.Visibility = Visibility.Visible;
                 AddWantToSeeAppBarButton.Visibility = Visibility.Visible;
+                Tips.Visibility = Visibility.Collapsed;
             }
         }
 

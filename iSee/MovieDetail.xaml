@@ -42,6 +42,7 @@
                         </AppBarButton.Icon>
                     </AppBarButton>
                 </StackPanel>
+                <TextBlock x:Name="Tips" Foreground="#FFF" Padding="0, 0, 0,10" Visibility="Collapsed" />
             </StackPanel>
         </Grid>
 

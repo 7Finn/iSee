@@ -40,9 +40,10 @@ namespace iSee.ViewModels
 
         public void RemoveAllMovie()
         {
-            for (int i = 0; i < allItems.Count; i++)
+            int size = allItems.Count;
+            for (int i = 0; i < size; i++)
             {
-                this.allItems.Remove(allItems[i]);
+                this.allItems.RemoveAt(0);
             }
         }
 

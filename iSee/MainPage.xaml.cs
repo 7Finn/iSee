@@ -52,7 +52,6 @@ namespace iSee
 
         private void ScenarioControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Debug.WriteLine("CHange");
             // Clear the status block when navigating scenarios.
             NotifyUser(String.Empty, NotifyType.StatusMessage);
 
@@ -179,6 +178,7 @@ namespace iSee
         {
             App.AlreadySeenViewModel.RemoveAllMovie();
             App.WantToSeeViewModel.RemoveAllMovie();
+
             string movie_sql;
             movie_sql = "SELECT * FROM movie WHERE Row = ? AND User_name = ?";
             using (var statement = App.conn.Prepare(movie_sql))
@@ -250,8 +250,8 @@ namespace iSee
             ScenarioControl.SelectedItem = null;
             ScenarioFrame.Navigate(typeof(iSee.MovieDetail), title);
         }
-
     }
+
     public enum NotifyType
     {
         StatusMessage,
