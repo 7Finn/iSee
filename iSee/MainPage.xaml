@@ -23,10 +23,16 @@
                                     <ImageBrush x:Name="head_image" ImageSource="Assets/UserImage.jpg" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <TextBlock x:Name="current_user_name" Style="{StaticResource PaneUserName}" Margin="0,10,0,0">未登录</TextBlock>
+                            <RelativePanel>
+                                <TextBlock x:Name="current_user_name" Style="{StaticResource PaneUserName}"  RelativePanel.AlignHorizontalCenterWithPanel="True" Text="未登录" Margin="0,13,0,0"/>
+                                <AppBarButton x:Name="LogOutAppBarButton" Width="20" Height="30" VerticalAlignment="Top" RelativePanel.RightOf="current_user_name" Click="LogOutAppBarButton_Click" Style="{StaticResource LogOutAppBarButtonStyle}" Visibility="Collapsed" >
+                                    <AppBarButton.Icon>
+                                        <FontIcon Glyph="&#xf08b;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="15"/>
+                                    </AppBarButton.Icon>
+                                </AppBarButton>
+                            </RelativePanel>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="signin_button" Content="登陆" HorizontalAlignment="Stretch" Click="ShowSignInDialogButton_Click" VerticalAlignment="Stretch" Margin="0,0,118,0"/>
                     <TextBlock Style="{StaticResource PaneHeadTitle}" Margin="10,0,0,0">我的电影</TextBlock>
                     <ListView x:Name="ScenarioControl" SelectionChanged="ScenarioControl_SelectionChanged"
                 SelectionMode="Single" Background="Transparent" BorderThickness="0"

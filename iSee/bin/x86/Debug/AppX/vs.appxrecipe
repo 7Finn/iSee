@@ -22,13 +22,13 @@
     <AppXManifest Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-13T16:32:57.052</Modified>
+      <Modified>2016-05-14T02:44:59.108</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.exe">
       <PackagePath>entrypoint\iSee.exe</PackagePath>
-      <Modified>2016-05-13T16:32:55.839</Modified>
+      <Modified>2016-05-14T02:44:57.791</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\wuqif\.nuget\packages\ImageLib.UWP\5.0.0\lib\uap10.0\ImageLib.Controls.dll">
       <PackagePath>ImageLib.Controls.dll</PackagePath>
@@ -566,7 +566,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\iSee.xr.xml">
       <PackagePath>iSee.xr.xml</PackagePath>
-      <Modified>2016-05-13T15:58:06.297</Modified>
+      <Modified>2016-05-14T02:44:57.495</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -598,11 +598,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-13T16:32:56.327</Modified>
+      <Modified>2016-05-14T02:44:58.265</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="g:\documents\visual studio 2015\Projects\iSee\iSee\bin\x86\Debug\Core\iSee.exe">
       <PackagePath>iSee.exe</PackagePath>
-      <Modified>2016-05-13T16:32:57.051</Modified>
+      <Modified>2016-05-14T02:44:59.106</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

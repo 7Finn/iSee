@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -28,8 +29,12 @@ namespace iSee
     /// </summary>
     public sealed partial class MovieDetail : Page
     {
+
+        ViewModels.MovieViewModel WantToSeeViewModel = App.WantToSeeViewModel;
+        ViewModels.MovieViewModel AlreadySeenViewModel = App.AlreadySeenViewModel;
+
         private Movie movie;
-        private string movieTitle;
+        public string title, tag, act, year, url;
 
         public MovieDetail()
         {
@@ -38,16 +43,12 @@ namespace iSee
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            movieTitle = (string)e.Parameter;
+            title = (string)e.Parameter;
             GetDetail();
         }
 
         private async void GetDetail()
         {
-            string title, tag, act, year, url;
-            title = tag = act = year = "";
-            url = "Assets/华尔街之狼.jpg";
-
             HttpClient httpClient = new HttpClient();
             var headers = httpClient.DefaultRequestHeaders;
             headers.Add("apikey", "ea6c6be7c1fc529b040b019f1149c10a");
@@ -58,7 +59,8 @@ namespace iSee
                 throw new Exception("Invalid header value: " + header);
             }
 
-            string getMovie = "http://op.juhe.cn/onebox/movie/video?key=ea6c6be7c1fc529b040b019f1149c10a&q=" + movieTitle;
+            //string getMovie = "http://op.juhe.cn/onebox/movie/video?key=ea6c6be7c1fc529b040b019f1149c10a&q=" + movieTitle;
+            string getMovie = "https://api.douban.com/v2/movie/search?q=" + title;
 
             HttpResponseMessage response = await httpClient.GetAsync(getMovie);
             response.EnsureSuccessStatusCode();
@@ -67,35 +69,59 @@ namespace iSee
             string Result = code.GetString(getByte);
             JsonTextReader json = new JsonTextReader(new StringReader(Result));
 
-
+            
+            //只检索第一个结果(Genres只能出现一次)
+            bool theFirst = true;
             while (json.Read())
             {
                 if (json.Value != null)
                 {
-                    if (json.Value.Equals("title"))
+                    if (json.Value.Equals("genres"))
                     {
+                        if (theFirst == false) break;
+                        theFirst = false;
                         json.Read();
-                        title = json.Value.ToString();
+                        json.Read();
+                        while (json.Value != null)
+                        {
+                            tag += json.Value.ToString() + " ";
+                            json.Read();
+                        }
+                        Debug.WriteLine(json.Value);
+                        json.Read();
+                        //tag = json.Value.ToString();
                     }
-                    if (json.Value.Equals("tag"))
+                    if (json.Value.Equals("directors"))
                     {
-                        json.Read();
-                        tag = json.Value.ToString();
-                    }
-                    if (json.Value.Equals("act"))
-                    {
-                        json.Read();
-                        act = json.Value.ToString();
+                        while(json.Read())
+                        {
+                            if (json.Value != null)
+                            {
+                                if (json.Value.Equals("name"))
+                                {
+                                    json.Read();
+                                    act += json.Value.ToString() + " ";
+                                }
+                                if (json.Value.Equals("year")) break;
+                            }
+                        }
                     }
                     if (json.Value.Equals("year"))
                     {
                         json.Read();
                         year = json.Value.ToString();
                     }
-                    if (json.Value.Equals("cover"))
+                    if (json.Value.Equals("images"))
                     {
-                        json.Read();
-                        url = json.Value.ToString();
+                        while (json.Read())
+                        {
+                            if (json.Value != null && json.Value.Equals("large"))
+                            {
+                                json.Read();
+                                url = json.Value.ToString();
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -118,10 +144,27 @@ namespace iSee
 
             //赋值给前端
             MovieImage.Source = new BitmapImage(new Uri(url));
-            MovieTitle.Text = title;
+            MovieDir.Text = act;
             MovieYear.Text = year;
+            MovieTag.Text = tag;
 
+        }
 
+        private void AddWantToSeeAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            //加载进WantToSee
+            movie.save();
+            WantToSeeViewModel.AddMovie(movie);
+            //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
+        }
+
+        private void AlreadySeenAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            //加载进AlreadySeen
+            movie.save();
+            AlreadySeenViewModel.AddMovie(movie);
+            AlreadySeenViewModel.UpdateMovie(movie.get_title());
+            //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
         }
     }
 }

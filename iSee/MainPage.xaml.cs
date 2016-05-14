@@ -121,6 +121,17 @@ namespace iSee
 
         public bool is_signin = false;
 
+        private void LogOutAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            is_signin = false;
+            ReloadAllMovies(is_signin);
+            //head_image.ImageSource = "Assets/UserImage.jpg";
+            current_user_name.Text = "未登录";
+            SignInContentDialog.current_user = null;
+
+            LogOutAppBarButton.Visibility = Visibility.Collapsed;
+        }
+
         private async void ShowSignInDialogButton_Click(object sender, RoutedEventArgs e)
         {
             if (is_signin == false)
@@ -134,7 +145,8 @@ namespace iSee
                     is_signin = true;
                     current_user_name.Text = SignInContentDialog.current_user.name;
 
-                    signin_button.Content = "注销";
+                    LogOutAppBarButton.Visibility = Visibility.Visible;
+                    //signin_button.Content = "注销";
 
                     // 更新用户的数据
                     ReloadAllMovies(is_signin);
@@ -156,7 +168,9 @@ namespace iSee
                 //head_image.ImageSource = "Assets/UserImage.jpg";
                 current_user_name.Text = "未登录";
                 SignInContentDialog.current_user = null;
-                signin_button.Content = "登录";
+
+                LogOutAppBarButton.Visibility = Visibility.Collapsed;
+                //signin_button.Content = "登录";
             }
         }
 

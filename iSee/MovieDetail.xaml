@@ -35,7 +35,7 @@
         <Grid Grid.Column="0" Padding="10">
             <xp:Shadow CornerRadius="2"
                        Z_Depth="2">
-                <Image x:Name="MovieImage" Source="Assets/驯龙高手2.jpg" ></Image>
+                <Image x:Name="MovieImage" ></Image>
             </xp:Shadow>
         </Grid>
 
@@ -45,16 +45,16 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Padding="10" VerticalAlignment="Bottom">
-                <TextBlock x:Name="MovieTitle" FontSize="24" Margin="0,0,0,10"></TextBlock>
-                <TextBlock Text="故事梗概" Foreground="Gray"></TextBlock>
-                <TextBlock Text="从前从前有一条龙.." FontSize="13.333"  ></TextBlock>
+                <TextBlock x:Name="MovieTitle" Text="{x:Bind title}" FontSize="24" Margin="0,0,0,10"></TextBlock>
+                <TextBlock Text="电影类别" Foreground="Gray"></TextBlock>
+                <TextBlock x:Name="MovieTag" FontSize="13.333"  ></TextBlock>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" >
-                    <AppBarButton Width="40" Height="40" Style="{StaticResource LikeAppBarButtonStyle}" >
+                    <AppBarButton Tag="{x:Bind title}" Width="40" Height="40" Click="AddWantToSeeAppBarButton_Click">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xf0cb;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarButton Width="40" Height="40" Style="{StaticResource FinishAppBarButtonStyle}" >
+                    <AppBarButton Tag="{x:Bind title}" Width="40" Height="40">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xf046;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20"/>
                         </AppBarButton.Icon>
@@ -63,9 +63,9 @@
             </StackPanel>
             <StackPanel Grid.Row="1" Padding="10">
                 <TextBlock Text="导演" Foreground="#FFF39C12" />
-                <TextBlock Text="吴其锋" Foreground="#FFF" Padding="0,0,0,10" />
+                <TextBlock x:Name="MovieDir" Foreground="#FFF" Padding="0,0,0,10" />
                 <TextBlock Text="上映日期" Foreground="#FFF39C12"></TextBlock>
-                <TextBlock x:Name="MovieYear" Text="2015.01.01" Foreground="#FFF" Padding="0,0,0,10" />
+                <TextBlock x:Name="MovieYear" Foreground="#FFF" Padding="0,0,0,10" />
                 
             </StackPanel>
         </Grid>
