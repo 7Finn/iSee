@@ -253,6 +253,8 @@
     </Style>
 
     <Style x:Key="AlreadySeenGridViewItemStyle" TargetType="GridViewItem">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Height" Value="380" />
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -406,6 +408,7 @@
 
     <Style x:Key="WantToSeeGridViewItemStyle" TargetType="GridViewItem">
         <Setter Property="Height" Value="240" />
+        <Setter Property="Width" Value="300" />
         <Setter Property="Padding" Value="0,0,0,10"/>
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
@@ -858,7 +861,8 @@
     </Style>
 
     <Style x:Key="TheRecentHitGridViewItemStyle" TargetType="GridViewItem">
-        <Setter Property="Height" Value="300" />
+        <Setter Property="Height" Value="280" />
+        <Setter Property="Width" Value="200" />
         <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
         <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
         <Setter Property="Background" Value="#FFF"/>

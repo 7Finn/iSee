@@ -60,10 +60,6 @@ namespace iSee
             if (s != null)
             {
                 ScenarioFrame.Navigate(s.ClassType);
-                if (Window.Current.Bounds.Width < 640)
-                {
-                    //Splitter.IsPaneOpen = false;
-                }
             }
         }
 

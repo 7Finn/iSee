@@ -24,10 +24,10 @@
                     <UserControl>
                         <xp:Shadow CornerRadius="2" Z_Depth="2">
                             <StackPanel CornerRadius="2" Orientation="Horizontal" Background="White">
-                                <Image Source="{x:Bind url}" Stretch="Uniform"/>
+                                <Image Source="{x:Bind url}" Width="150" Stretch="UniformToFill"/>
                                 <Grid Padding="10,10,10,5">
                                     <StackPanel VerticalAlignment="Top">
-                                        <TextBlock TextWrapping="Wrap" Text="{x:Bind title}" ></TextBlock>
+                                        <TextBlock TextWrapping="Wrap" Text="{x:Bind title}" Width="100" ></TextBlock>
                                         <TextBlock Text="{x:Bind year}" FontSize="9.333" Foreground="#FF686868"></TextBlock>
                                     </StackPanel>
                                     <Grid VerticalAlignment="Bottom">

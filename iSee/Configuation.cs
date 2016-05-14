@@ -11,8 +11,8 @@ namespace iSee
         List<Scenario> scenarios = new List<Scenario>
         {
             new Scenario() { Symbol = "Video", Title = "正在热播", ClassType = typeof(global::iSee.TheRecentHit) },
-            new Scenario() { Symbol = "Favorite", Title = "想看的", ClassType = typeof(global::iSee.WantToSee) },
-            new Scenario() { Symbol = "List", Title = "已看电影", ClassType = typeof(global::iSee.AlreadySeen) },
+            new Scenario() { Symbol = "Favorite", Title = "待看列表", ClassType = typeof(global::iSee.WantToSee) },
+            new Scenario() { Symbol = "List", Title = "观影记录", ClassType = typeof(global::iSee.AlreadySeen) },
             new Scenario() { Symbol = "Like", Title = "私人影院", ClassType = typeof(global::iSee.MovieRecommend) },
             //new Scenario() { Title = "Calendar with Unicode extensions in languages", ClassType = typeof(SDKTemplate.Scenario4_UnicodeExtensions) },
             //new Scenario() { Title = "Calendar time zone support", ClassType = typeof(SDKTemplate.Scenario5_TimeZone) }

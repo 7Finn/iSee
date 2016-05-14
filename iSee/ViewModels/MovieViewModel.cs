@@ -35,6 +35,7 @@ namespace iSee.ViewModels
 
         public Movie GetLastMovie()
         {
+            if (allItems.Count == 0) return null;
             return allItems[allItems.Count - 1];
         }
 

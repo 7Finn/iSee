@@ -55,14 +55,14 @@ namespace iSee
             {
                 AddAlreadySeenAppBarButton.Visibility = Visibility.Collapsed;
                 AddWantToSeeAppBarButton.Visibility = Visibility.Collapsed;
-                Tips.Text = "(已添加至想看的电影中)";
+                Tips.Text = "(已添加至待看列表)";
                 Tips.Visibility = Visibility.Visible;
             }
             else if (ExistMovie(title, 2+""))
             {
                 AddAlreadySeenAppBarButton.Visibility = Visibility.Collapsed;
                 AddWantToSeeAppBarButton.Visibility = Visibility.Collapsed;
-                Tips.Text = "(已看电影)";
+                Tips.Text = "(已添加至观影记录)";
                 Tips.Visibility = Visibility.Visible;
             }
             else
@@ -206,7 +206,7 @@ namespace iSee
             //如果在WantToSee已存在
             if (ExistMovie(movie.get_title(), 1 + ""))
             {
-                var i = new MessageDialog("该电影已记录").ShowAsync();
+                var i = new MessageDialog("已添加至待看列表").ShowAsync();
             }
             else
             {
@@ -223,7 +223,7 @@ namespace iSee
             if (movie == null) return;
             if (ExistMovie(movie.get_title(), 2 + "")) //如果AlreadySeen已存在
             {
-                var i = new MessageDialog("该电影已记录").ShowAsync();
+                var i = new MessageDialog("已添加至观影记录").ShowAsync();
             }
             else if (ExistMovie(movie.get_title(), 1 + ""))  //如果在WantToSee已存在
             {

@@ -11,7 +11,7 @@
 
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
         <controls:ImageView
             x:Name="LoadingImage"
             ImageLoaderKey="test"
@@ -27,7 +27,7 @@
                 <DataTemplate x:DataType="md:Movie"  >
                     <UserControl>
                         <xp:Shadow CornerRadius="2" Z_Depth="2">
-                            <Image Source="{x:Bind url}" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                            <Image Source="{x:Bind url}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Top" />
                         </xp:Shadow>
                     </UserControl>
                 </DataTemplate>

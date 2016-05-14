@@ -20,7 +20,7 @@
                     <UserControl>
                         <xp:Shadow CornerRadius="2" Z_Depth="2">
                             <StackPanel Background="#FFF">
-                                <Image Source="{x:Bind url}" Stretch="Uniform" Height="280" HorizontalAlignment="Center" VerticalAlignment="Top"  />
+                                <Image Source="{x:Bind url}" Stretch="UniformToFill" Height="280" HorizontalAlignment="Center" VerticalAlignment="Top"  />
                                 <StackPanel Padding="10">
                                     <TextBlock Text="{x:Bind title}"/>
                                     <StackPanel Orientation="Horizontal">

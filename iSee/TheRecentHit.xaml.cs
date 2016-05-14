@@ -145,38 +145,6 @@ namespace iSee
             }
 
             HideLoadingImage();
-            UpdateTile();
-        }
-
-        private async void UpdateTile()
-        {
-
-            //CreateTileUpdaterForApplication
-            StorageFile xmlFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Tile.xml"));
-            XmlDocument doc = await XmlDocument.LoadFromFileAsync(xmlFile);
-
-            //Get the latest todoitem
-            Movie lastMovie = ViewModel.AllItems[0];
-
-            //Get the text Node
-            XmlNodeList textNodeList = doc.GetElementsByTagName("text");
-            foreach (var node in textNodeList)
-            {
-                if (node.InnerText == "Title") node.InnerText = lastMovie.title;
-                if (node.InnerText == "Details") node.InnerText = lastMovie.year;
-            }
-
-            //Get the image Node
-            XmlNodeList imageNodeList = doc.GetElementsByTagName("image");
-            foreach (var node in imageNodeList)
-            {
-                node.Attributes[0].NodeValue = lastMovie.url;
-            }
-
-            //Update the Tile
-            TileNotification notifi = new TileNotification(doc);
-            var updater = TileUpdateManager.CreateTileUpdaterForApplication();
-            updater.Update(notifi);
         }
     }
 }
