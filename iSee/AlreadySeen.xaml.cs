@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,7 +31,7 @@ namespace iSee
             this.InitializeComponent();
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteAppBarButton_Click(object sender, RoutedEventArgs e)
         {
             AppBarButton apt = sender as AppBarButton;
             string title = apt.Tag.ToString();
@@ -43,5 +45,12 @@ namespace iSee
                 }
             }
         }
+
+        private void LikeAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppBarButton apt = sender as AppBarButton;
+            apt.Foreground = new SolidColorBrush(Color.FromArgb(255, 204, 51, 0));
+        }
+        
     }
 }

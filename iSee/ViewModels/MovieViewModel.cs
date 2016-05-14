@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using iSee.Models;
+using System.Diagnostics;
 
 namespace iSee.ViewModels
 {
@@ -69,6 +70,7 @@ namespace iSee.ViewModels
                 {
                     this.allItems[i].row = 2;
                     this.allItems[i].update();
+                    Debug.WriteLine(this.allItems[i]);
                     break;
                 }
             }

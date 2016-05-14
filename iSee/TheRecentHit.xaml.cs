@@ -46,6 +46,7 @@ namespace iSee
             Movie movie = (Movie)gridView.SelectedItem;
             string movieTitle = movie.get_title();
             Debug.WriteLine(movie.get_title());
+
             Frame.Navigate(typeof(global::iSee.MovieDetail), movieTitle);
         }
 

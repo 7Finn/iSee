@@ -9,7 +9,7 @@
     PrimaryButtonText="登录"  
     SecondaryButtonText="取消"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" >
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick" MinHeight="320" >
 
     <ContentDialog.Resources>
         <!-- These flyouts or used for confirmation when the user changes 

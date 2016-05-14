@@ -46,10 +46,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackPanel Orientation="Horizontal" Padding="5,0,0,0" >
-                        <TextBox x:Name="Search" Width="145"/>
-                        <AppBarButton Icon="Find" Click="SearchButton_Click" Width="40" Height="40"/>
-                    </StackPanel>
+                    <SearchBox x:Name="Search" QuerySubmitted="Search_QuerySubmitted" Margin="10,0" Style="{StaticResource SearchBoxStyle}"></SearchBox>
                 </StackPanel>
             </SplitView.Pane>
 

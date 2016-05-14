@@ -15,8 +15,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
         <StackPanel>
-            <TextBox x:Name="Search" Width="200"/>
-            <AppBarButton Icon="Find" Click="AddBarButton_Click"/>
             <GridView 
             Style="{StaticResource WantToSeeGridViewStyle}" 
             ItemsSource="{x:Bind ViewModel.AllItems}" 
@@ -31,7 +29,7 @@
                                     <Image Source="{x:Bind url}" Stretch="Uniform"/>
                                     <Grid Padding="10,10,10,5">
                                         <StackPanel VerticalAlignment="Top">
-                                            <TextBlock Text="{x:Bind title}"></TextBlock>
+                                            <TextBlock TextWrapping="Wrap" Text="{x:Bind title}" Width="120"></TextBlock>
                                             <TextBlock Text="{x:Bind year}" FontSize="9.333" Foreground="#FF686868"></TextBlock>
                                         </StackPanel>
                                         <Grid VerticalAlignment="Bottom">

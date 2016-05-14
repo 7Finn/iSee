@@ -53,6 +53,7 @@ namespace iSee.Models
             this.url = url;
             this.row = 1;
         }
+
         public void save()
         {
             string sql = @"INSERT INTO movie VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -71,7 +72,7 @@ namespace iSee.Models
 
         public void remove()
         {
-            Debug.WriteLine("Delete");
+            Debug.WriteLine("Delete " + this.title + " " + this.row);
             string sql = @"DELETE FROM movie WHERE title = ? AND user_name = ? AND Row = ?";
             using (var statement = App.conn.Prepare(sql))
             {

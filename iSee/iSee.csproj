@@ -111,7 +111,6 @@
     <Compile Include="TheRecentHit.xaml.cs">
       <DependentUpon>TheRecentHit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AlreadyViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="ViewModels\ReventHitMovieViewModel.cs" />
     <Compile Include="WanToSee.xaml.cs">

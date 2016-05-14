@@ -1,5 +1,6 @@
 ﻿using iSee.Models;
 using Newtonsoft.Json;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -150,21 +151,71 @@ namespace iSee
 
         }
 
-        private void AddWantToSeeAppBarButton_Click(object sender, RoutedEventArgs e)
+        public bool ExistMovie(string title, string row)
         {
-            //加载进WantToSee
-            movie.save();
-            WantToSeeViewModel.AddMovie(movie);
-            //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
+            var db = App.conn;
+            string sql = "SELECT * FROM movie WHERE Title = ? AND User_name = ? AND Row = ?";
+            using (var statement = db.Prepare(sql))
+            {
+                statement.Bind(1, title);
+                statement.Bind(3, row);
+                if (SignInContentDialog.current_user != null)
+                {
+                    statement.Bind(2, SignInContentDialog.current_user.name);
+                }
+                else
+                {
+                    statement.Bind(2, "guest");
+                }
+                if (SQLiteResult.ROW == statement.Step())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        private void AlreadySeenAppBarButton_Click(object sender, RoutedEventArgs e)
+        private void AddWantToSeeAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            //加载进AlreadySeen
-            movie.save();
-            AlreadySeenViewModel.AddMovie(movie);
-            AlreadySeenViewModel.UpdateMovie(movie.get_title());
+            if (movie == null) return;
+            //如果在WantToSee已存在
+            if (ExistMovie(movie.get_title(), 1 + ""))
+            {
+
+            }
+            else
+            {
+                //加载进WantToSee
+                movie.save();
+                WantToSeeViewModel.AddMovie(movie);
+            }
             //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
+           // Frame.Navigate(typeof(iSee.WantToSee));
+        }
+
+        private void AddAlreadySeenAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (movie == null) return;
+            if (ExistMovie(movie.get_title(), 2 + "")) //如果AlreadySeen已存在
+            {
+
+            }
+            else if (ExistMovie(movie.get_title(), 1 + ""))  //如果在WantToSee已存在
+            {
+                WantToSeeViewModel.RemoveMovie(movie.get_title());
+                WantToSeeViewModel.UpdateMovie(movie.get_title());
+                AlreadySeenViewModel.AddMovie(movie);
+            }
+            else
+            {
+                //加载进AlreadySeen
+                movie.save();
+                movie.update();
+                AlreadySeenViewModel.UpdateMovie(movie.get_title());
+                AlreadySeenViewModel.AddMovie(movie);
+                //Debug.WriteLine(((AppBarButton)sender).Tag.ToString());
+            }
+            //Frame.Navigate(typeof(iSee.AlreadySeen));
         }
     }
 }

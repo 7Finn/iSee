@@ -20,16 +20,16 @@
                                 <StackPanel Padding="10">
                                     <TextBlock Text="{x:Bind title}"/>
                                     <StackPanel Orientation="Horizontal">
-                                        <AppBarButton Width="40" Height="40" Foreground="#CC3300" Style="{StaticResource LikeAppBarButtonStyle}">
+                                        <AppBarButton Click="LikeAppBarButton_Click" Width="40" Height="40" Style="{StaticResource LikeAppBarButtonStyle}">
                                             <AppBarButton.Icon>
                                                 <!-- 实心&#xf004; -->
                                                 <!-- 空心&#xf08a; -->
-                                                <FontIcon Glyph="&#xf08a;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FFFB5D44"/>
+                                                <FontIcon Glyph="&#xf004;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" />
                                             </AppBarButton.Icon>
                                         </AppBarButton>
-                                        <AppBarButton Width="40" Height="40" Style="{StaticResource DeleteAppBarButtonStyle}" Tag="{x:Bind title}" Click="AppBarButton_Click">
+                                        <AppBarButton Width="40" Height="40" Style="{StaticResource DeleteAppBarButtonStyle}" Tag="{x:Bind title}" Click="DeleteAppBarButton_Click">
                                             <AppBarButton.Icon>
-                                                <FontIcon Glyph="&#xf1f8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" Foreground="#FF898989"/>
+                                                <FontIcon Glyph="&#xf1f8;" FontFamily="Resources/FontAwesome.otf#FontAwesome" FontSize="20" />
                                             </AppBarButton.Icon>
                                         </AppBarButton>
                                     </StackPanel>

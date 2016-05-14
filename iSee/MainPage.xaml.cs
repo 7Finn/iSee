@@ -1,6 +1,7 @@
 ﻿using SQLitePCL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -248,11 +249,13 @@ namespace iSee
             }
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void Search_QuerySubmitted(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
         {
-            string title = Search.Text;
+            string title = sender.QueryText;
+            ScenarioControl.SelectedItem = null;
             ScenarioFrame.Navigate(typeof(iSee.MovieDetail), title);
         }
+
     }
 
     public enum NotifyType
